@@ -1,4 +1,4 @@
-module RoutingApp::Routing
+module Rstokyo::Routing
   def self.admin(options = {})
     options[:path] ||= 'admin'
     options[:param] ||= false

@@ -1,4 +1,4 @@
-#require 'routing_app/routing'
+require 'rstokyo/routing'
 
 Rstokyo::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
@@ -56,11 +56,11 @@ Rstokyo::Application.routes.draw do
   #     resources :products
   #   end
 
-#  RoutingApp::Application.routes.draw do
-#    RoutingApp::Routing.admin
-#    RoutingApp::Routing.front
-#  end
+  Rstokyo::Application.routes.draw do
+    Rstokyo::Routing.admin
+    Rstokyo::Routing.front
+  end
 
-  resources :index
+  #resources :index
 
 end
