@@ -1,14 +1,350 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rstokyo</title>
+<meta charset="UTF-8">
+<title>ルームシェア東京</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<a name="top" id="top"></a>
 
-<%= yield %>
+  <div id="header">
+  <div id="headerArea">
+    <div class="header_txt"><h1>ルームシェア・シェアハウス物件、ルームメイトを探すならルームシェア東京！</h1></div>
+    <div class="header_logo"><a href="http://www.rstokyo.net"><img src="/assets/site-logo.gif" alt="ルームシェア東京" width="271" height="50" /></a></div>
 
+    <div id="gnavi">
+      <ul id="globalnavi">
+      <li><a href="http://www.rstokyo.net"><img src="/assets/gnavi_01.jpg" alt="TOP" width="156" height="43" /></a></li>
+      <li><a href="/about/index.html"><img src="/assets/gnavi_02.jpg" alt="About Site" width="156" height="43" /></a></li>
+      <li><a href="/line/index.html"><img src="/assets/gnavi_03.jpg" alt="路線･駅名で探す" width="156" height="43" /></a></li>
+      <li><a href="/area/index.html"><img src="/assets/gnavi_04.jpg" alt="エリアで探す" width="156" height="43" /></a></li>
+      <li><a href="/blog/index.html"><img src="/assets/gnavi_05.jpg" alt="ブログ" width="156" height="43" /></a></li>
+      <li><a href="/kuchikomi/index.html"><img src="/assets/gnavi_06.jpg" alt="口コミ情報" width="156" height="43" /></a></li>
+      </ul>
+    </div>
+    <!-- end div#gnavi -->
+
+  </div><!-- end div#headerArea -->
+  </div><!-- end div#header -->
+
+  <div id="content" class="floatwrap">
+  <div id="contentArea" class="floatwrap">
+
+    <div id="side">
+    <h6><a href="/delivery/"><img src="/assets/navi_btn_01.jpg" alt="メールマガジン" width="210" height="80" /></a></h6>
+    <h6><a href="/pr/"><img src="/assets/navi_btn_02.jpg" alt="オーナー様・不動産会社様へ" width="210" height="60" /></a></h6>
+    <h6><a href="/pr/"><img src="/assets/navi_btn_03.jpg" alt="空き室を貸したい" width="210" height="60" /></a></h6>
+    <h6><a href="/pr/"><img src="/assets/navi_btn_04.jpg" alt="こんな物件を探してほしい" width="210" height="60" /></a></h6>
+    <h6><a href="/pr/"><img src="/assets/navi_btn_05.jpg" alt="口コミi情報求む" width="210" height="60" /></a></h6>
+    <h6><a href="/pr/"><img src="/assets/navi_btn_06.jpg" alt="お問い合わせ" width="210" height="60" /></a></h6>
+
+    <h6><a href="/pr/"><img src="/assets/navi_tit_01.jpg" alt="間取り別で探す" width="210" height="60" /></a></h6>
+    <ul class="side_list">
+      <li><a href="#">1R～1LDK</a></li>
+      <li><a href="#">2K～2LDK</a></li>
+      <li><a href="#">3K～3LDK</a></li>
+      <li><a href="#">4K～</a></li>
+    </ul>
+    <div class="side_list_footer"></div>
+    
+    <h6><a href="/pr/"><img src="/assets/navi_tit_02.jpg" alt="条件で探す" width="210" height="60" /></a></h6>
+    <ul class="side_list">
+      <li><a href="#">徒歩５分以内</a></li>
+      <li><a href="#">お一人様５万円以下</a></li>
+      <li><a href="#">初期投資１０万以下</a></li>
+      <li><a href="#">一戸建て</a></li>
+      <li><a href="#">新築・築浅</a></li>
+      <li><a href="#">デザイナーズ</a></li>
+      <li><a href="#">女性専用</a></li>
+      <li><a href="#">ペット可</a></li>
+      <li><a href="#">事業者介在型</a></li>
+    </ul>
+    <div class="side_list_footer"></div>
+    </div>
+    <!-- end div#side -->
+
+    <div id="main">
+    <div class="main_header"></div>
+
+      <%= yield %>
+
+      <div class="floatwrap">
+      
+      <div class="main_left">
+      <h6><img src="/assets/main_tit_01.jpg" alt="おすすめ！ルームシェア物件" width="356" height="46" /></h6>
+        <div class="main_spec_or">
+          <div class="main_spec_left">
+            <div class="main_spec_tit">賃貸一戸建て</div>          
+            <div class="main_spec_access">東急東横線　菊名5分</div>          
+            <div class="main_spec_pict"><img src="/assets/bukken_pict.jpg" width="150" height="113"></div>          
+          </div><!-- end div.main_spec_left -->
+          <div class="main_spec_right">
+            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
+            <div class="main_spec_rtxt">         
+            住所：横浜市港北区<br>
+            面積：121.63㎡<br>
+            間取り：４ＬＤＫ<br>
+            個室：６畳×2、７畳、5.5畳<br>
+            敷金：１ヶ月<br>
+            礼金：１ヶ月</div>
+            </div><!-- end div.main_spec_right -->
+            <div class="main_spec_copy">
+            3名以上の仲良しグループにオススメ！
+            </div><!-- end div.main_spec_copy -->
+        </div><!-- end div.main_spec_or -->
+        <div class="main_spec_or">
+          <div class="main_spec_left">
+            <div class="main_spec_tit">賃貸一戸建て</div>          
+            <div class="main_spec_access">東急東横線　菊名5分</div>          
+            <div class="main_spec_pict"><img src="/assets/bukken_pict.jpg" width="150" height="113"></div>          
+          </div><!-- end div.main_spec_left -->
+          <div class="main_spec_right">
+            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
+            <div class="main_spec_rtxt">         
+            住所：横浜市港北区<br>
+            面積：121.63㎡<br>
+            間取り：４ＬＤＫ<br>
+            個室：６畳×2、７畳、5.5畳<br>
+            敷金：１ヶ月<br>
+            礼金：１ヶ月</div>
+            </div><!-- end div.main_spec_right -->
+            <div class="main_spec_copy">
+            3名以上の仲良しグループにオススメ！
+            </div><!-- end div.main_spec_copy -->
+        </div><!-- end div.main_spec_or -->
+      </div><!-- end div.main_left -->
+
+      <div class="main_right">
+      <h6><img src="/assets/main_tit_02.jpg" alt="新着！ルームシェア物件" width="356" height="46" /></h6>
+        <div class="main_spec_gr">
+          <div class="main_spec_left">
+            <div class="main_spec_tit">賃貸一戸建て</div>          
+            <div class="main_spec_access">東急東横線　菊名5分</div>          
+            <div class="main_spec_pict"><img src="/assets/bukken_pict.jpg" width="150" height="113"></div>          
+          </div><!-- end div.main_spec_left -->
+          <div class="main_spec_right">
+            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
+            <div class="main_spec_rtxt">         
+            住所：横浜市港北区<br>
+            面積：121.63㎡<br>
+            間取り：４ＬＤＫ<br>
+            個室：６畳×2、７畳、5.5畳<br>
+            敷金：１ヶ月<br>
+            礼金：１ヶ月</div>
+            </div><!-- end div.main_spec_right -->
+            <div class="main_spec_copy">
+            3名以上の仲良しグループにオススメ！
+            </div><!-- end div.main_spec_copy -->
+        </div><!-- end div.main_spec_or -->
+        <div class="main_spec_gr">
+          <div class="main_spec_left">
+            <div class="main_spec_tit">賃貸一戸建て</div>          
+            <div class="main_spec_access">東急東横線　菊名5分</div>          
+            <div class="main_spec_pict"><img src="/assets/bukken_pict.jpg" width="150" height="113"></div>          
+          </div><!-- end div.main_spec_left -->
+          <div class="main_spec_right">
+            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
+            <div class="main_spec_rtxt">         
+            住所：横浜市港北区<br>
+            面積：121.63㎡<br>
+            間取り：４ＬＤＫ<br>
+            個室：６畳×2、７畳、5.5畳<br>
+            敷金：１ヶ月<br>
+            礼金：１ヶ月</div>
+            </div><!-- end div.main_spec_right -->
+            <div class="main_spec_copy">
+            3名以上の仲良しグループにオススメ！
+            </div><!-- end div.main_spec_copy -->
+        </div><!-- end div.main_spec_or -->
+      </div><!-- end div.main_right -->
+
+      </div><!-- end div.floatwrap -->
+    
+      <div class="floatwrap mgnt20">
+      
+      <div class="main_left">
+      <h6><img src="/assets/main_tit_03.jpg" alt="おすすめ！ルームシェア物件" width="356" height="46" /></h6>
+        <div class="main_spec_or">
+          <div class="main_spec_left">
+            <div class="main_spec_tit">賃貸一戸建て</div>          
+            <div class="main_spec_access">東急東横線　菊名5分</div>          
+            <div class="main_spec_pict"><img src="/assets/bukken_pict.jpg" width="150" height="113"></div>          
+          </div><!-- end div.main_spec_left -->
+          <div class="main_spec_right">
+            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
+            <div class="main_spec_rtxt">         
+            住所：横浜市港北区<br>
+            面積：121.63㎡<br>
+            間取り：４ＬＤＫ<br>
+            個室：６畳×2、７畳、5.5畳<br>
+            敷金：１ヶ月<br>
+            礼金：１ヶ月</div>
+            </div><!-- end div.main_spec_right -->
+            <div class="main_spec_copy">
+            3名以上の仲良しグループにオススメ！
+            </div><!-- end div.main_spec_copy -->
+        </div><!-- end div.main_spec_or -->
+        <div class="main_spec_or">
+          <div class="main_spec_left">
+            <div class="main_spec_tit">賃貸一戸建て</div>          
+            <div class="main_spec_access">東急東横線　菊名5分</div>          
+            <div class="main_spec_pict"><img src="/assets/bukken_pict.jpg" width="150" height="113"></div>          
+          </div><!-- end div.main_spec_left -->
+          <div class="main_spec_right">
+            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
+            <div class="main_spec_rtxt">         
+            住所：横浜市港北区<br>
+            面積：121.63㎡<br>
+            間取り：４ＬＤＫ<br>
+            個室：６畳×2、７畳、5.5畳<br>
+            敷金：１ヶ月<br>
+            礼金：１ヶ月</div>
+            </div><!-- end div.main_spec_right -->
+            <div class="main_spec_copy">
+            3名以上の仲良しグループにオススメ！
+            </div><!-- end div.main_spec_copy -->
+
+        </div><!-- end div.main_spec_or -->
+      </div><!-- end div.main_left -->
+
+      <div class="main_right">
+      <h6><img src="/assets/main_tit_04.jpg" alt="新着！ルームシェア物件" width="356" height="46" /></h6>
+        <div class="main_spec_gr">
+          <div class="main_spec_left">
+            <div class="main_spec_tit">賃貸一戸建て</div>          
+            <div class="main_spec_access">東急東横線　菊名5分</div>          
+            <div class="main_spec_pict"><img src="/assets/bukken_pict.jpg" width="150" height="113"></div>          
+          </div><!-- end div.main_spec_left -->
+          <div class="main_spec_right">
+            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
+            <div class="main_spec_rtxt">         
+            住所：横浜市港北区<br>
+            面積：121.63㎡<br>
+            間取り：４ＬＤＫ<br>
+            個室：６畳×2、７畳、5.5畳<br>
+            敷金：１ヶ月<br>
+            礼金：１ヶ月</div>
+            </div><!-- end div.main_spec_right -->
+            <div class="main_spec_copy">
+            3名以上の仲良しグループにオススメ！
+            </div><!-- end div.main_spec_copy -->
+
+        </div><!-- end div.main_spec_or -->
+        <div class="main_spec_gr">
+
+          <div class="main_spec_left">
+            <div class="main_spec_tit">賃貸一戸建て</div>          
+            <div class="main_spec_access">東急東横線　菊名5分</div>          
+            <div class="main_spec_pict"><img src="/assets/bukken_pict.jpg" width="150" height="113"></div>          
+          </div><!-- end div.main_spec_left -->
+          <div class="main_spec_right">
+            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
+            <div class="main_spec_rtxt">         
+            住所：横浜市港北区<br>
+            面積：121.63㎡<br>
+            間取り：４ＬＤＫ<br>
+            個室：６畳×2、７畳、5.5畳<br>
+            敷金：１ヶ月<br>
+            礼金：１ヶ月</div>
+            </div><!-- end div.main_spec_right -->
+            <div class="main_spec_copy">
+            3名以上の仲良しグループにオススメ！
+            </div><!-- end div.main_spec_copy -->
+
+        </div><!-- end div.main_spec_or -->
+      </div><!-- end div.main_right -->
+
+      </div><!-- end div.floatwrap -->
+
+      <div id="news">
+        <h6 class="mgnt30"><img src="/assets/main_information.jpg" alt="ルームシェア東京からのお知らせ" width="714" height="44" /></h6>
+        <ul>
+        <li><span class="green">2013.4.1</span> ルームシェア東京スタートしました</li>
+        <li><span class="green">2013.4.1</span> ルームシェア東京スタートしました</li>
+        <li><span class="green">2013.4.1</span> ルームシェア東京スタートしました</li>
+        </ul>
+      </div><!-- end div#news -->
+
+    <div class="main_footer"></div>
+    </div><!-- end div#main -->
+
+  </div><!-- end div#contentArea -->
+  </div><!-- end div#content -->
+
+  <div id="footer">
+  <div id="footerArea" class="floatwrap">
+
+    <div class="footer_logo">
+    <div class="footer_elogo">
+    <h6><a href="http://www.rstokyo.net"><img src="/assets/footer_elogo.jpg" alt="スキマジャパンロゴ" width="72" height="66" /></a></h6>
+    </div>
+    <div class="footer_corp">
+    <h6><img src="/assets/footer_logo.jpg" alt="03-5347-9239" width="150" height="20" /></h6>
+      <p>〒166-0004<br>
+        東京都杉並区阿佐谷南1-8-3<br>
+        プリエ阿佐ヶ谷1A</p>
+    </div>
+    </div>
+
+    <div class="footer_navi">
+      <ul>
+      <li><a href="#">・ルームシェア東京とは</a></li>
+      <li><a href="#">・運営会社</a></li>
+      <li><a href="#">・オーナー様へ</a></li>
+      <li><a href="#">・不動産業者様へ</a></li>
+      <li><a href="#">・サイトマップ</a></li>
+      <li><a href="#">・リンク集</a></li>
+      <li><a href="#">・プライバシーポリシー</a></li>
+      <li><a href="#">・お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div class="footer_navi">
+    <h6><img src="/assets/fotter_tit_01.jpg" alt="人気の路線から探す" width="164" height="30" /></h6>
+      <ul>
+      <li><a href="#">・東急東横線</a></li>
+      <li><a href="#">・山手線</a></li>
+      <li><a href="#">・中央線</a></li>
+      <li><a href="#">・田園都市線</a></li>
+      <li><a href="#">・京王線</a></li>
+      <li><a href="#">・小田急線</a></li>
+      <li><a href="#">・副都心線</a></li>
+      </ul>
+    </div>
+    <div class="footer_navi">
+    <h6><img src="/assets/fotter_tit_02.jpg" alt="人気の駅から探す" width="164" height="30" /></h6>
+      <ul>
+      <li><a href="#">・自由が丘</a></li>
+      <li><a href="#">・吉祥寺</a></li>
+      <li><a href="#">・中目黒</a></li>
+      <li><a href="#">・中野</a></li>
+      <li><a href="#">・高円寺</a></li>
+      <li><a href="#">・表参道</a></li>
+      </ul>
+    </div>
+    <div class="footer_navi">
+    <h6><img src="/assets/fotter_tit_03.jpg" alt="人気のエリアから探す" width="164" height="30" /></h6>
+      <ul>
+      <li><a href="#">・世田谷区</a></li>
+      <li><a href="#">・目黒区</a></li>
+      <li><a href="#">・中央区</a></li>
+      <li><a href="#">・杉並区</a></li>
+      <li><a href="#">・渋谷区</a></li>
+      <li><a href="#">・新宿区</a></li>
+      <li><a href="#">・港区</a></li>
+      </ul>
+    </div>
+
+  <div class="footer_copy">Copyright (C) 2013 <a href="http://www.rstokyo.net">ルームシェア東京</a> All Rights Reserved.</div>
+
+  </div><!-- end div#footerArea -->
+  </div><!-- end div#footer -->
+
+<!-- start google-analytics -->
+
+<!-- end google-analytics -->
 </body>
 </html>
+
