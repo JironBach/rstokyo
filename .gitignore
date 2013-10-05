@@ -42,7 +42,7 @@ doc/app
 /Gemfile.local
 /.rvmrc*
 *~
-/public/assets/*
+#/public/assets/*
 /.ruby-version
 /*sublime*
 
