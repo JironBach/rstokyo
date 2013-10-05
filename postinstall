@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+rm -f /home/sqale/current/config/database.yml
+ln -s /home/sqale/etc/database.yml /home/sqale/current/config/database.yml
+#ln -s /home/sqale/etc/oauth.yml /home/sqale/current/config/oauth.yml
+
+cd /home/sqale/current&&bundle update
+/etc/init.d/app restart
+
