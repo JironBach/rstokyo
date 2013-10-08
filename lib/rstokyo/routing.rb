@@ -1,4 +1,15 @@
 module Rstokyo::Routing
+  def self.front(options = {})
+    options[:path] ||= '/'
+    options[:param] ||= false
+    Rails.application.routes.draw do
+      namespace :front, path: options[:path] do
+        root to: 'index#index'
+        resources :index
+      end
+    end unless options[:param]
+  end
+
   def self.admin(options = {})
     options[:path] ||= 'admin'
     options[:param] ||= false
@@ -10,14 +21,11 @@ module Rstokyo::Routing
     end unless options[:param]
   end
 
-  def self.front(options = {})
-    options[:path] ||= '/'
-    options[:param] ||= false
+  def self.db(options = {})
+    options[:path] ||= 'db'
     Rails.application.routes.draw do
-      namespace :front, path: options[:path] do
-        root to: 'index#index'
-        resources :index
-      end
+      mount VisualMigrate::Engine => "/db" if ENV['RAILS_ENV'] != 'production'
     end unless options[:param]
   end
+
 end

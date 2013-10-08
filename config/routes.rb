@@ -57,10 +57,9 @@ Rstokyo::Application.routes.draw do
   #   end
 
   Rstokyo::Application.routes.draw do
-    Rstokyo::Routing.admin
     Rstokyo::Routing.front
+    Rstokyo::Routing.admin
+    Rstokyo::Routing.db
   end
-
-  #resources :index
 
 end

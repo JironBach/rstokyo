@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>ルームシェア東京</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => false %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,16 +13,16 @@
   <div id="header">
   <div id="headerArea">
     <div class="header_txt"><h1>ルームシェア・シェアハウス物件、ルームメイトを探すならルームシェア東京！</h1></div>
-    <div class="header_logo"><a href="http://www.rstokyo.net"><img src="/assets/site-logo.gif" alt="ルームシェア東京" width="271" height="50" /></a></div>
+    <div class="header_logo"><a href="http://www.rstokyo.net"><%= image_tag("site-logo.gif", alt: "ルームシェア東京", width: "271", height: "50") %></a></div>
 
     <div id="gnavi">
       <ul id="globalnavi">
-      <li><a href="http://www.rstokyo.net"><img src="/assets/gnavi_01.jpg" alt="TOP" width="156" height="43" /></a></li>
-      <li><a href="/about/index.html"><img src="/assets/gnavi_02.jpg" alt="About Site" width="156" height="43" /></a></li>
-      <li><a href="/line/index.html"><img src="/assets/gnavi_03.jpg" alt="路線･駅名で探す" width="156" height="43" /></a></li>
-      <li><a href="/area/index.html"><img src="/assets/gnavi_04.jpg" alt="エリアで探す" width="156" height="43" /></a></li>
-      <li><a href="/blog/index.html"><img src="/assets/gnavi_05.jpg" alt="ブログ" width="156" height="43" /></a></li>
-      <li><a href="/kuchikomi/index.html"><img src="/assets/gnavi_06.jpg" alt="口コミ情報" width="156" height="43" /></a></li>
+      <li><a href="http://www.rstokyo.net"><%= image_tag("gnavi_01.jpg", alt: "TOP", width: "156", height: "43") %></a></li>
+      <li><a href="/about/index.html"><%= image_tag("gnavi_02.jpg", alt: "About Site", width: "156", height: "43") %></a></li>
+      <li><a href="/line/index.html"><%= image_tag("gnavi_03.jpg", alt: "路線･駅名で探す", width: "156", height: "43") %></a></li>
+      <li><a href="/area/index.html"><%= image_tag("gnavi_04.jpg", alt: "エリアで探す", width: "156", height: "43") %></a></li>
+      <li><a href="/blog/index.html"><%= image_tag("gnavi_05.jpg", alt: "ブログ", width: "156", height: "43") %></a></li>
+      <li><a href="/kuchikomi/index.html"><%= image_tag("gnavi_06.jpg", alt: "口コミ情報", width: "156", height: "43") %></a></li>
       </ul>
     </div>
     <!-- end div#gnavi -->
@@ -37,10 +37,10 @@
 
     <div class="footer_logo">
     <div class="footer_elogo">
-    <h6><a href="http://www.rstokyo.net"><img src="/assets/footer_elogo.jpg" alt="スキマジャパンロゴ" width="72" height="66" /></a></h6>
+    <h6><a href="http://www.rstokyo.net"><%= image_tag("footer_elogo.jpg", alt: "スキマジャパンロゴ", width: "72", height: "66") %></a></h6>
     </div>
     <div class="footer_corp">
-    <h6><img src="/assets/footer_logo.jpg" alt="03-5347-9239" width="150" height="20" /></h6>
+    <h6><%= image_tag("footer_logo.jpg", alt: "03-5347-9239", width: "150", height: "20") %></h6>
       <p>〒166-0004<br>
         東京都杉並区阿佐谷南1-8-3<br>
         プリエ阿佐ヶ谷1A</p>
@@ -60,7 +60,7 @@
       </ul>
     </div>
     <div class="footer_navi">
-    <h6><img src="/assets/fotter_tit_01.jpg" alt="人気の路線から探す" width="164" height="30" /></h6>
+    <h6><%= image_tag("fotter_tit_01.jpg", alt: "人気の路線から探す", width: "164", height: "30") %></h6>
       <ul>
       <li><a href="#">・東急東横線</a></li>
       <li><a href="#">・山手線</a></li>
@@ -72,7 +72,7 @@
       </ul>
     </div>
     <div class="footer_navi">
-    <h6><img src="/assets/fotter_tit_02.jpg" alt="人気の駅から探す" width="164" height="30" /></h6>
+    <h6><%= image_tag("fotter_tit_02.jpg", alt: "人気の駅から探す", width: "164", height: "30") %></h6>
       <ul>
       <li><a href="#">・自由が丘</a></li>
       <li><a href="#">・吉祥寺</a></li>
@@ -83,7 +83,7 @@
       </ul>
     </div>
     <div class="footer_navi">
-    <h6><img src="/assets/fotter_tit_03.jpg" alt="人気のエリアから探す" width="164" height="30" /></h6>
+    <h6><%= image_tag("fotter_tit_03.jpg", alt: "人気のエリアから探す", width: "164", height: "30") %></h6>
       <ul>
       <li><a href="#">・世田谷区</a></li>
       <li><a href="#">・目黒区</a></li>
@@ -105,4 +105,3 @@
 <!-- end google-analytics -->
 </body>
 </html>
-
