@@ -1,0 +1,20 @@
+■件名
+<%= @review.title %>
+
+■名前
+<%= @review.name %>
+
+■年代・性別
+<%= MasterAge.find(@review.age_id).value %>
+
+■職業
+<%= MasterJob.find(@review.job_id).value %>
+
+■メールアドレス
+<%= @review.email %>
+
+■テーマ種別
+<%= MasterTheme.find(@review.theme_id).value %>
+
+■コメント記入欄
+<%= @review.detail %>

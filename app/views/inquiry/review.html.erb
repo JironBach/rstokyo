@@ -1,0 +1,97 @@
+<div id="content" class="floatwrap">
+<div id="contentArea" class="floatwrap">
+
+  <%= render partial: 'layouts/side' %>
+
+  <div id="main">
+  <div class="main_header"></div>
+
+    <article id="post-8" class="post-8 page type-page status-publish hentry box-middle post">
+
+
+    <h2>口コミ情報</h2>
+
+
+    <%= form_for @review, url: {action: :confirm_review}, :html => { :multipart => true } do |f| %>
+
+
+      <table border="0" cellpadding="0" cellspacing="0" class="form">
+
+        <tr>
+          <th>件名<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_field :title, size: "16", maxlength: "13" %>
+            <div class="error"><%= @review.errors.messages[:title][0] if !@review.errors.messages[:title].blank? %></div>
+          </td>
+        </tr>
+        <tr>  </tr>
+        <tr>
+          <th>お名前<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_field :name, size: "12", maxlength: "24" %>
+            <div class="error"><%= @review.errors.messages[:name][0] if !@review.errors.messages[:name].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>年代・性別<span class="red">【必須】</span></th>
+          <td>
+            <%= f.select(:age_id, options_for_select(MasterAge.all.collect {|ma| [ ma.value, ma.id ]}, selected: @review.age_id), {include_blank: '選択して下さい'}) %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>職業<span class="red">【必須】</span></th>
+          <td>
+            <%= f.select(:job_id, options_for_select(MasterJob.all.collect {|mj| [ mj.value, mj.id ]}, selected: @review.job_id), {include_blank: '選択して下さい'}) %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>メールアドレス<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_field :email, size: "36", maxlength: "80" %>
+            <div class="error"><%= @review.errors.messages[:email][0] if !@review.errors.messages[:email].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>画像添付</th>
+          <td>
+            <%= f.file_field :image %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>テーマ種別<span class="red">【必須】</span></th>
+          <td>
+            <% MasterTheme.all.each do |mt| %>
+              <%= f.radio_button :theme_id, mt.id %><%= mt.value %>
+            <% end %>
+            <div class="error"><%= @review.errors.messages[:theme_id][0] if !@review.errors.messages[:theme_id].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>コメント記入欄<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_area :detail, size: "16x4", maxlength: "20" %></textarea>
+            <div class="error"><%= @review.errors.messages[:detail][0] if !@review.errors.messages[:detail].blank? %></div>
+          </td>
+        </tr>
+      </table>
+
+      <p>※投稿された情報・画像の著作権は、全て管理人に譲渡されるものとします。</p>
+      <p>また管理人は、その内容を自由に選択、修正および編集することができるものとします。</p>
+      <p>詳しくは利用規約をご覧ください。</p>
+
+      <div class="form_btn"><input type="image" src="/assets/confirm_btn.jpg" onMouseOver="this.src='/assets/confirm_btn_o.jpg'" onMouseOut="this.src='/assets/confirm_btn.jpg'" class="submit" value="送信確認画面へ">
+      </div>
+
+    <% end %>
+
+
+  </div>
+  </div>
+</div>
+</div>

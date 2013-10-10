@@ -48,6 +48,17 @@ end
 
 group :development do
   gem 'visual_migrate', :git => 'git://github.com/JironBach/visual_migrate.git'
+  gem "ruby_parser"
+  gem "file-tail"
+  gem "sourcify"
+  gem "ruby2ruby"
+  gem 'jquery-ui-rails'
   gem 'systemu'
+end
+
+gem 'paperclip'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+group :development, :test do
+  gem 'rack-env'
 end
 

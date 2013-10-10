@@ -1,0 +1,106 @@
+<div id="content" class="floatwrap">
+<div id="contentArea" class="floatwrap">
+
+  <%= render partial: 'layouts/side' %>
+
+  <div id="main">
+  <div class="main_header"></div>
+
+    <article id="post-8" class="post-8 page type-page status-publish hentry box-middle post">
+
+
+    <h2>空き室を貸したい</h2>
+
+
+    <p><a href="/privacy/">プライバシーポリシー</a>をご確認いただき、ご同意のうえ、ご送信ください。</p>
+    <h6 class="clear"><%= image_tag "spacer.gif", alt: "space", height: "20" %></h6>
+
+
+    <%= form_for @review, url: {action: :post_review} do |f| %>
+
+      <div id="input-hidden"><!-- フォーム用 hidden データ -->
+        <%= f.hidden_field :title %>
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :age_id %>
+        <%= f.hidden_field :job_id %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :theme_id %>
+        <%= f.hidden_field :detail %>
+      </div>
+
+      <label for="contact_1">
+
+      <table border="0" cellpadding="0" cellspacing="0" class="form">
+
+        <tr>
+          <th>件名<span class="red">【必須】</span></th>
+          <td>
+            <%= @review.title %>
+          </td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+          <th>お名前<span class="red">【必須】</span></th>
+          <td>
+            <%= @review.name %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>年代・性別<span class="red">【必須】</span></th>
+          <td>
+            <%= MasterAge.find(@review.age_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>職業<span class="red">【必須】</span></th>
+          <td>
+            <%= MasterJob.find(@review.job_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>メールアドレス<span class="red">【必須】</span></th>
+          <td>
+            <%= @review.email %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>画像</th>
+          <td>
+            <%= @review.image.instance.image_file_name %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>テーマ種別<span class="red">【必須】</span></th>
+          <td>
+            <%= MasterTheme.find(@review.theme_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>コメント記入欄<span class="red">【必須】</span></th>
+          <td>
+            <%= @review.detail %>
+          </td>
+        </tr>
+      </table>
+
+      <div class="form_btn">
+        <input type="image" src="/assets/submit_btn.jpg" onMouseOver="this.src='/assets/submit_btn_o.jpg'" onMouseOut="this.src='/assets/submit_btn.jpg'" class="submit">
+      </div>
+
+    <% end %>
+
+    </article>
+
+  <div class="main_footer"></div>
+  </div><!-- end div#main -->
+
+</div><!-- end div#contentArea -->
+</div><!-- end div#content -->

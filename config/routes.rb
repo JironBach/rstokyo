@@ -57,9 +57,10 @@ Rstokyo::Application.routes.draw do
   #   end
 
   Rstokyo::Application.routes.draw do
-    Rstokyo::Routing.front
+    Rstokyo::Routing.index
+    Rstokyo::Routing.inquiry
     Rstokyo::Routing.admin
-    Rstokyo::Routing.db
+    Rstokyo::Routing.visual_migrate
   end
 
 end

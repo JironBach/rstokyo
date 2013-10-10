@@ -1,30 +1,32 @@
 module Rstokyo::Routing
-  def self.front(options = {})
+  def self.index(options = {})
     options[:path] ||= '/'
     options[:param] ||= false
     Rails.application.routes.draw do
-      namespace :front, path: options[:path] do
-        root to: 'index#index'
-        resources :index
-      end
+      match 'index(/:action(/:id))(.:format)', to: "index#:action", via: [:get, :post]
+    end unless options[:param]
+  end
+
+  def self.inquiry(options = {})
+    options[:path] ||= '/'
+    options[:param] ||= false
+    Rails.application.routes.draw do
+      match 'inquiry(/:action(/:id))(.:format)', to: "inquiry#:action", via: [:get, :post, :patch]
     end unless options[:param]
   end
 
   def self.admin(options = {})
-    options[:path] ||= 'admin'
+    options[:path] ||= '/'
     options[:param] ||= false
     Rails.application.routes.draw do
-      namespace :admin, path: options[:path] do
-        root to: 'index#index'
-        resources :admin
-      end
+      match 'admin(/:action(/:id))(.:format)', to: "admin#:action", via: [:get, :post]
     end unless options[:param]
   end
 
-  def self.db(options = {})
-    options[:path] ||= 'db'
+  def self.visual_migrate(options = {})
+    options[:path] ||= 'visual_migrate'
     Rails.application.routes.draw do
-      mount VisualMigrate::Engine => "/db" if ENV['RAILS_ENV'] != 'production'
+      mount VisualMigrate::Engine => "/visual_migrate" if ENV['RAILS_ENV'] != 'production'
     end unless options[:param]
   end
 

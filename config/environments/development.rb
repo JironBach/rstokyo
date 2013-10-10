@@ -26,4 +26,19 @@ Rstokyo::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  config.action_view.field_error_proc = proc { |input, instance| input }
+
+  # gmail
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'rstokyo.net',
+    :user_name            => ENV['MAIL_USER_NAME'],
+    :password             => ENV['MAIL_PASSWORD'],
+    :authentication       => 'plain',
+    :enable_starttls_auto => true,
+  }
+
 end

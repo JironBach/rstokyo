@@ -1,9 +1,9 @@
     <div id="side">
     <h6><a href="/delivery/"><%= image_tag("navi_btn_01.jpg", alt: "メールマガジン", width: "210", height: "80") %></a></h6>
     <h6><a href="/pr/"><%= image_tag("navi_btn_02.jpg", alt: "オーナー様・不動産会社様へ", width: "210", height: "60") %></a></h6>
-    <h6><a href="/pr/"><%= image_tag("navi_btn_03.jpg", alt: "空き室を貸したい", width: "210", height: "60") %></a></h6>
+    <h6><%= link_to(image_tag("navi_btn_03.jpg", alt: "空き室を貸したい", width: "210", height: "60"), controller: :inquiry, action: :vacanthouse) %></a></h6>
     <h6><a href="/pr/"><%= image_tag("navi_btn_04.jpg", alt: "こんな物件を探してほしい", width: "210", height: "60") %></a></h6>
-    <h6><a href="/pr/"><%= image_tag("navi_btn_05.jpg", alt: "口コミ情報求む", width: "210", height: "60") %></a></h6>
+    <h6><%= link_to(image_tag("navi_btn_05.jpg", alt: "口コミ情報求む", width: "210", height: "60"), controller: :inquiry, action: :review) %></a></h6>
     <h6><a href="/pr/"><%= image_tag("navi_btn_06.jpg", alt: "お問い合わせ", width: "210", height: "60") %></a></h6>
 
     <h6><a href="/pr/"><%= image_tag("navi_tit_01.jpg", alt: "間取り別で探す", width: "210", height: "60") %></a></h6>

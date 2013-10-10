@@ -31,6 +31,7 @@
 /log/mongrel_debug
 /public/dispatch.*
 /public/plugin_assets
+/public/system
 /tmp/cache/*
 /tmp/sessions/*
 /tmp/sockets/*
@@ -45,4 +46,6 @@ doc/app
 #/public/assets/*
 /.ruby-version
 /*sublime*
+/.env
+/.powenv
 
