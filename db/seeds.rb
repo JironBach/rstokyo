@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-MasterAge.create([
+MasterAgeGender.create([
 	{ value: '１０代・女性' },
 	{ value: '１０代・男性' },
 	{ value: '２０代・女性' },

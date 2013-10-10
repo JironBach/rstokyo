@@ -5,16 +5,16 @@
 <%= @review.name %>
 
 ■年代・性別
-<%= MasterAge.find(@review.age_id).value %>
+<%= MasterAgeGender.find(@review.master_age_gender_id).value %>
 
 ■職業
-<%= MasterJob.find(@review.job_id).value %>
+<%= MasterJob.find(@review.master_job_id).value %>
 
 ■メールアドレス
 <%= @review.email %>
 
 ■テーマ種別
-<%= MasterTheme.find(@review.theme_id).value %>
+<%= MasterTheme.find(@review.master_theme_id).value %>
 
 ■コメント記入欄
 <%= @review.detail %>

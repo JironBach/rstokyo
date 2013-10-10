@@ -21,10 +21,10 @@
       <div id="input-hidden"><!-- フォーム用 hidden データ -->
         <%= f.hidden_field :title %>
         <%= f.hidden_field :name %>
-        <%= f.hidden_field :age_id %>
-        <%= f.hidden_field :job_id %>
+        <%= f.hidden_field :master_age_gender_id %>
+        <%= f.hidden_field :master_job_id %>
         <%= f.hidden_field :email %>
-        <%= f.hidden_field :theme_id %>
+        <%= f.hidden_field :master_theme_id %>
         <%= f.hidden_field :detail %>
       </div>
 
@@ -51,14 +51,14 @@
         <tr>
           <th>年代・性別<span class="red">【必須】</span></th>
           <td>
-            <%= MasterAge.find(@review.age_id).value %>
+            <%= MasterAgeGender.find(@review.master_age_gender_id).value %>
           </td>
         </tr>
 
         <tr>
           <th>職業<span class="red">【必須】</span></th>
           <td>
-            <%= MasterJob.find(@review.job_id).value %>
+            <%= MasterJob.find(@review.master_job_id).value %>
           </td>
         </tr>
 
@@ -79,7 +79,7 @@
         <tr>
           <th>テーマ種別<span class="red">【必須】</span></th>
           <td>
-            <%= MasterTheme.find(@review.theme_id).value %>
+            <%= MasterTheme.find(@review.master_theme_id).value %>
           </td>
         </tr>
 

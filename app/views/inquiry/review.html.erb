@@ -36,14 +36,14 @@
         <tr>
           <th>年代・性別<span class="red">【必須】</span></th>
           <td>
-            <%= f.select(:age_id, options_for_select(MasterAge.all.collect {|ma| [ ma.value, ma.id ]}, selected: @review.age_id), {include_blank: '選択して下さい'}) %>
+            <%= f.select(:master_age_gender_id, options_for_select(MasterAgeGender.all.collect {|ma| [ ma.value, ma.id ]}, selected: @review.master_age_gender_id), {include_blank: '選択して下さい'}) %>
           </td>
         </tr>
 
         <tr>
           <th>職業<span class="red">【必須】</span></th>
           <td>
-            <%= f.select(:job_id, options_for_select(MasterJob.all.collect {|mj| [ mj.value, mj.id ]}, selected: @review.job_id), {include_blank: '選択して下さい'}) %>
+            <%= f.select(:master_job_id, options_for_select(MasterJob.all.collect {|mj| [ mj.value, mj.id ]}, selected: @review.master_job_id), {include_blank: '選択して下さい'}) %>
           </td>
         </tr>
 
@@ -66,9 +66,9 @@
           <th>テーマ種別<span class="red">【必須】</span></th>
           <td>
             <% MasterTheme.all.each do |mt| %>
-              <%= f.radio_button :theme_id, mt.id %><%= mt.value %>
+              <%= f.radio_button :master_theme_id, mt.id %><%= mt.value %>
             <% end %>
-            <div class="error"><%= @review.errors.messages[:theme_id][0] if !@review.errors.messages[:theme_id].blank? %></div>
+            <div class="error"><%= @review.errors.messages[:master_theme_id][0] if !@review.errors.messages[:master_theme_id].blank? %></div>
           </td>
         </tr>
 

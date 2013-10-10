@@ -32,7 +32,7 @@ class InquiryController < ApplicationController
 
 private
   def review_strong_params
-    params.require(:mail_review).permit(:title, :name, :age_id, :job_id, :email, :image, :theme_id, :detail)
+    params.require(:mail_review).permit(:title, :name, :master_age_gender_id, :master_job_id, :email, :image, :master_theme_id, :detail)
   end
 
 end
