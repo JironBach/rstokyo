@@ -19,6 +19,7 @@ class InquiryController < ApplicationController
 		@review = MailReview.new
 		@review.update(review_strong_params)
 		@review.image = session[:image]
+		session[:image] = nil
 		@review.save
 
 		InquiryMailer.review(@review).deliver
@@ -48,7 +49,9 @@ class InquiryController < ApplicationController
 		@vacanthouse = MailVacanthouse.new
 		@vacanthouse.update(vacanthouse_strong_params)
 		@vacanthouse.image = session[:image]
+		session[:image] = nil
 		@vacanthouse.save_with_madori(session[:madori_ids])
+		session[:madori_ids] = nil
 
 		InquiryMailer.vacanthouse(@vacanthouse, session[:madori_ids]).deliver
 
