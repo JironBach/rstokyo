@@ -1,0 +1,10 @@
+require 'active_record/persistence'
+
+module ClassMethods
+public
+	def create_or_update
+   	raise ReadOnlyRecord if readonly?
+   	result = new_record? ? create_record : update_record
+   	result != false
+ 	end
+end

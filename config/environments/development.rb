@@ -35,8 +35,8 @@ Rstokyo::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'rstokyo.net',
-    :user_name            => ENV['MAIL_USER_NAME'],
-    :password             => ENV['MAIL_PASSWORD'],
+    :user_name            => 'rstokyo.mobin@gmail.com',
+    :password             => 'mobin51junya',
     :authentication       => 'plain',
     :enable_starttls_auto => true,
   }

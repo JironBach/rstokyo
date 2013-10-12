@@ -9,4 +9,13 @@ class InquiryMailer < ActionMailer::Base
 		end
   end
 
+  def vacanthouse(vacanthouse, madori_ids)
+    @vacanthouse = vacanthouse
+    @madori_ids = madori_ids
+    attachments[@vacanthouse.image.instance.image_file_name] = File.read(@vacanthouse.image.path) if !@vacanthouse.image.blank?
+		mail(to: ENV['MAIL_TO'], subject: '空き室を貸したい') do |format|
+			format.text { render 'vacanthouse' }
+		end
+  end
+
 end

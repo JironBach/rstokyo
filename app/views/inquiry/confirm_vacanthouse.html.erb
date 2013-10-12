@@ -1,0 +1,187 @@
+<div id="content" class="floatwrap">
+<div id="contentArea" class="floatwrap">
+
+  <%= render partial: 'layouts/side' %>
+
+  <div id="main">
+  <div class="main_header"></div>
+
+    <article id="post-8" class="post-8 page type-page status-publish hentry box-middle post">
+
+
+    <h2>空き室を貸したい</h2>
+
+
+    <p><a href="/privacy/">プライバシーポリシー</a>をご確認いただき、ご同意のうえ、ご送信ください。</p>
+    <h6 class="clear"><%= image_tag "spacer.gif", alt: "space", height: "20" %></h6>
+
+    <%= form_for @vacanthouse, url: {action: :post_vacanthouse} do |f| %>
+
+      <div id="input-hidden"><!-- フォーム用 hidden データ -->
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :master_age_id %>
+        <%= f.hidden_field :master_gender_id %>
+        <%= f.hidden_field :master_job_id %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :title %>
+        <%= f.hidden_field :address %>
+        <%= f.hidden_field :price %>
+        <%= f.hidden_field :etc_price %>
+        <%= f.hidden_field :station %>
+        <%= f.hidden_field :station_time %>
+        <%= f.hidden_field :master_tatemono_class_id %>
+        <%= f.hidden_field :master_live_term_id %>
+        <%= f.hidden_field :master_recruit_gender_id %>
+        <%= f.hidden_field :detail %>
+      </div>
+
+      <label for="contact_1">
+
+      <table border="0" cellpadding="0" cellspacing="0" class="form">
+
+        </tr>
+        <tr>
+          <th>お名前<span class="red">【必須】</span></th>
+          <td>
+            <%= @vacanthouse.name %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>年齢<span class="red">【必須】</span></th>
+          <td>
+            <%= MasterAge.find(@vacanthouse.master_age_id).value %>
+          </td>
+        </tr>
+
+          <th>性別<span class="red">【必須】</span></th>
+          <td>
+            <%= MasterGender.find(@vacanthouse.master_gender_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>職業<span class="red">【必須】</span></th>
+          <td>
+            <%= MasterJob.find(@vacanthouse.master_job_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>メールアドレス<span class="red">【必須】</span></th>
+          <td>
+            <%= @vacanthouse.email %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>件名<span class="red">【必須】</span></th>
+          <td>
+            <%= @vacanthouse.title %>
+          </td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>画像</th>
+          <td>
+            <%= @vacanthouse.image.instance.image_file_name %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>住所（町名まで可。例：東京都杉並区阿佐ヶ谷南）<span class="red">【必須】</span></th>
+          <td>
+            <%= @vacanthouse.address %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>家賃　円<span class="red">【必須】</span></th>
+          <td>
+            <%= @vacanthouse.price %>
+          </td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>その他経費（家賃以外に必要なお金は全て記載してください）</th>
+          <td>
+            <%= @vacanthouse.etc_price %>
+          </td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>最寄り駅<span class="red">【必須】</span></th>
+          <td>
+            <%= @vacanthouse.station %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>最寄り駅からの所要時間（例：徒歩４分）<span class="red">【必須】</span></th>
+          <td>
+            <%= @vacanthouse.station_time %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>建物種別<span class="red">【必須】</span></th>
+          <td>
+            <%= MasterTatemonoClass.find(@vacanthouse.master_tatemono_class_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>間取り<span class="red">【必須】</span></th>
+          <td>
+            <% @madori_ids.each do |madori_id| %>
+              <%= MasterMadori.find(madori_id).value %>　
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>個室</th>
+          <td>
+            <%= @vacanthouse.koshitsu.nil? ? '不可' : '可' %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>入居期間</th>
+          <td>
+            <%= MasterLiveTerm.find(@vacanthouse.master_live_term_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>募集する性別</th>
+          <td>
+            <%= MasterRecruitGender.find(@vacanthouse.master_recruit_gender_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>説明・コメント<span class="red">【必須】</span></th>
+          <td>
+            <%= @vacanthouse.detail %>
+          </td>
+        </tr>
+
+      </table>
+
+      <div class="form_btn">
+        <input type="image" src="/assets/submit_btn.jpg" onMouseOver="this.src='/assets/submit_btn_o.jpg'" onMouseOut="this.src='/assets/submit_btn.jpg'" class="submit">
+      </div>
+
+    <% end %>
+
+    </article>
+
+  <div class="main_footer"></div>
+  </div><!-- end div#main -->
+
+</div><!-- end div#contentArea -->
+</div><!-- end div#content -->

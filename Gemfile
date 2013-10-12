@@ -55,10 +55,11 @@ group :development do
   gem 'jquery-ui-rails'
   gem 'systemu'
 end
-
-gem 'paperclip'
-gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 group :development, :test do
   gem 'rack-env'
 end
+
+gem 'paperclip'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+gem 'active_attr'
 

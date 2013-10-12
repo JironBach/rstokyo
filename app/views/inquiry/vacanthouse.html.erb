@@ -12,21 +12,13 @@
     <h2>空き室を貸したい</h2>
 
 
-    <%= form_for @vacanthouse, url: {action: :confirm_review}, :html => { :multipart => true } do |f| %>
+    <%= form_for @vacanthouse, url: {action: :confirm_vacanthouse}, :html => { :multipart => true } do |f| %>
 
 
       <table border="0" cellpadding="0" cellspacing="0" class="form">
 
         <tr>
-          <th>件名<span class="red">【必須】</span></th>
-          <td>
-            <%= f.text_field :title, size: "16", maxlength: "13" %>
-            <div class="error"><%= @vacanthouse.errors.messages[:title][0] if !@vacanthouse.errors.messages[:title].blank? %></div>
-          </td>
-        </tr>
-        <tr>  </tr>
-        <tr>
-          <th>お名前<span class="red">【必須】</span></th>
+          <th>名前・ニックネーム<span class="red">【必須】</span></th>
           <td>
             <%= f.text_field :name, size: "12", maxlength: "24" %>
             <div class="error"><%= @vacanthouse.errors.messages[:name][0] if !@vacanthouse.errors.messages[:name].blank? %></div>
@@ -34,16 +26,23 @@
         </tr>
 
         <tr>
-          <th>年代・性別<span class="red">【必須】</span></th>
+          <th>年齢<span class="red">【必須】</span></th>
           <td>
-            <%= f.select(:age_id, options_for_select(MasterAge.all.collect {|ma| [ ma.value, ma.id ]}, selected: @vacanthouse.age_id), {include_blank: '選択して下さい'}) %>
+            <%= f.select(:master_age_id, options_for_select(MasterAge.all.collect {|ma| [ ma.value, ma.id ]}, selected: @vacanthouse.master_age_id), {include_blank: '選択して下さい'}) %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>性別<span class="red">【必須】</span></th>
+          <td>
+            <%= f.select(:master_gender_id, options_for_select(MasterGender.all.collect {|ma| [ ma.value, ma.id ]}, selected: @vacanthouse.master_gender_id), {include_blank: '選択して下さい'}) %>
           </td>
         </tr>
 
         <tr>
           <th>職業<span class="red">【必須】</span></th>
           <td>
-            <%= f.select(:job_id, options_for_select(MasterJob.all.collect {|mj| [ mj.value, mj.id ]}, selected: @vacanthouse.job_id), {include_blank: '選択して下さい'}) %>
+            <%= f.select(:master_job_id, options_for_select(MasterJob.all.collect {|mj| [ mj.value, mj.id ]}, selected: @vacanthouse.master_job_id), {include_blank: '選択して下さい'}) %>
           </td>
         </tr>
 
@@ -56,6 +55,14 @@
         </tr>
 
         <tr>
+          <th>件名<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_field :title, size: "16", maxlength: "13" %>
+            <div class="error"><%= @vacanthouse.errors.messages[:title][0] if !@vacanthouse.errors.messages[:title].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
           <th>画像添付</th>
           <td>
             <%= f.file_field :image %>
@@ -63,27 +70,113 @@
         </tr>
 
         <tr>
-          <th>テーマ種別<span class="red">【必須】</span></th>
+          <th>住所（町名まで可。例：東京都杉並区阿佐ヶ谷南）<span class="red">【必須】</span></th>
           <td>
-            <% MasterTheme.all.each do |mt| %>
-              <%= f.radio_button :theme_id, mt.id %><%= mt.value %>
-            <% end %>
-            <div class="error"><%= @vacanthouse.errors.messages[:theme_id][0] if !@vacanthouse.errors.messages[:theme_id].blank? %></div>
+            <%= f.text_field :address, size: "16", maxlength: "13" %>
+            <div class="error"><%= @vacanthouse.errors.messages[:address][0] if !@vacanthouse.errors.messages[:address].blank? %></div>
+          </td>
           </td>
         </tr>
 
         <tr>
-          <th>コメント記入欄<span class="red">【必須】</span></th>
+          <th>家賃　円<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_field :price, size: "16", maxlength: "13" %>
+            <div class="error"><%= @vacanthouse.errors.messages[:price][0] if !@vacanthouse.errors.messages[:price].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>その他経費（家賃以外に必要なお金は全て記載してください）</th>
+          <td>
+            <%= f.text_field :etc_price, size: "16", maxlength: "13" %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>最寄り駅<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_field :station, size: "16", maxlength: "13" %>
+            <div class="error"><%= @vacanthouse.errors.messages[:station][0] if !@vacanthouse.errors.messages[:station].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>最寄り駅からの所要時間（例：徒歩４分）<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_field :station_time, size: "16", maxlength: "13" %>
+            <div class="error"><%= @vacanthouse.errors.messages[:station_time][0] if !@vacanthouse.errors.messages[:station_time].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>建物種別<span class="red">【必須】</span></th>
+          <td>
+            <% MasterTatemonoClass.all.each do |mt| %>
+              <%= f.radio_button :master_tatemono_class_id, mt.id %><%= mt.value %>
+            <% end %>
+            <div class="error"><%= @vacanthouse.errors.messages[:master_tatemono_class_id][0] if !@vacanthouse.errors.messages[:master_tatemono_class_id].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>間取り<span class="red">【必須】</span></th>
+          <td>
+            <% MasterMadori.all.each do |mm| %>
+              <%#= f.check_box 'master_madoris[]', {checked: (!params[:mail_vacanthouse].nil? && !params[:mail_vacanthouse][:master_madoris].nil? ? params[:mail_vacanthouse][:master_madoris].include?(mm.id.to_s) : false)}, mm.id.to_s, false %><%#= mm.value %>
+              <%= check_box_tag 'mail_vacanthouse[master_madoris][]', mm.id.to_s, (!params[:mail_vacanthouse].nil? && !params[:mail_vacanthouse][:master_madoris].nil? ? params[:mail_vacanthouse][:master_madoris].include?(mm.id.to_s) : false), id: dom_id(mm) %><%= mm.value %>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>個室</th>
+          <td>
+            <%= f.check_box :koshitsu, {checked: !params[:mail_vacanthouse].nil? ? params[:mail_vacanthouse][:koshitsu] == '1' : false} %>個室が提供できる
+          </td>
+        </tr>
+
+        <tr>
+          <th>入居期間</th>
+          <td>
+            <% MasterLiveTerm.all.each do |ml| %>
+              <%= f.radio_button :master_live_term_id, ml.id %><%= ml.value %>
+            <% end %>
+            <div class="error"><%= @vacanthouse.errors.messages[:master_live_term_id][0] if !@vacanthouse.errors.messages[:master_live_term_id].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>募集する性別</th>
+          <td>
+            <% MasterRecruitGender.all.each do |mr| %>
+              <%= f.radio_button :master_recruit_gender_id, mr.id %><%= mr.value %>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>説明・コメント<span class="red">【必須】</span></th>
           <td>
             <%= f.text_area :detail, size: "16x4", maxlength: "20" %></textarea>
             <div class="error"><%= @vacanthouse.errors.messages[:detail][0] if !@vacanthouse.errors.messages[:detail].blank? %></div>
           </td>
         </tr>
+
       </table>
 
-      <p>※投稿された情報・画像の著作権は、全て管理人に譲渡されるものとします。</p>
-      <p>また管理人は、その内容を自由に選択、修正および編集することができるものとします。</p>
-      <p>詳しくは利用規約をご覧ください。</p>
+      <p>※以下を理解して守れる方のみ投稿してください
+
+      <p>投稿された情報・画像の著作権は、全て管理人に譲渡されるものとします。<br>
+      また管理人は、その内容を自由に選択、修正および編集することができるものとします。<br>
+      詳しくは利用規約をご覧ください。</p>
+
+      <p>メールアドレスが正しいことを再確認してください。タイプミスが増えています。投稿受付の確認メールを開き、中に書かれたリンクをクリックすることで投稿完了となります。</p>
+
+      <p>メール受信の設定で、管理人からのメールが受け取れるようにしてください。確認メールが届かない場合、スパムフォルダ等に入っていないかチェックしてください。</p>
+
+      <p>借りている物件の契約で、再契約は禁じられていないか確認を行うか、大家からルームシェアをする了承を取り付けるようにしてください。<br>
+      契約違反のルームシェアを行い、それが原因でトラブルに陥っても、本サイトは関知いたしません。</p>
 
       <div class="form_btn"><input type="image" src="/assets/confirm_btn.jpg" onMouseOver="this.src='/assets/confirm_btn_o.jpg'" onMouseOut="this.src='/assets/confirm_btn.jpg'" class="submit" value="送信確認画面へ">
       </div>
@@ -91,7 +184,12 @@
     <% end %>
 
 
-  </div>
-  </div>
+    <div class="main_footer"></div>
+    </div><!-- end div#main -->
+
+
+  </div><!-- end div#contentArea -->
+  </div><!-- end div#content -->
+
 </div>
 </div>

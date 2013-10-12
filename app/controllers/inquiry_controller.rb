@@ -19,7 +19,7 @@ class InquiryController < ApplicationController
 		@review = MailReview.new
 		@review.update(review_strong_params)
 		@review.image = session[:image]
-		@review.save!
+		@review.save
 
 		InquiryMailer.review(@review).deliver
 
@@ -27,12 +27,41 @@ class InquiryController < ApplicationController
 	end
 
 	def vacanthouse
+		@vacanthouse = MailVacanthouse.new
 		render :vacanthouse
+	end
+
+	def confirm_vacanthouse
+		@vacanthouse = MailVacanthouse.new
+		@vacanthouse.update(vacanthouse_strong_params)
+		session[:image] = @vacanthouse.image
+		if @vacanthouse.valid? && !params[:mail_vacanthouse][:master_madoris].blank?
+			@madori_ids = params[:mail_vacanthouse]['master_madoris']
+			session[:madori_ids] = @madori_ids
+			render :confirm_vacanthouse
+		else
+			render :vacanthouse
+		end
+	end
+
+	def post_vacanthouse
+		@vacanthouse = MailVacanthouse.new
+		@vacanthouse.update(vacanthouse_strong_params)
+		@vacanthouse.image = session[:image]
+		@vacanthouse.save_with_madori(session[:madori_ids])
+
+		InquiryMailer.vacanthouse(@vacanthouse, session[:madori_ids]).deliver
+
+		render :post_vacanthouse
 	end
 
 private
   def review_strong_params
     params.require(:mail_review).permit(:title, :name, :master_age_gender_id, :master_job_id, :email, :image, :master_theme_id, :detail)
+  end
+
+  def vacanthouse_strong_params
+    params.require(:mail_vacanthouse).permit(:name, :master_age_id, :master_gender_id, :master_job_id, :email, :title, :image, :address, :price, :etc_price, :station, :station_time, :master_tatemono_class_id, 'master_madoris[]', :koshitsu, :master_live_term_id, :master_recruit_gender_id, :detail)
   end
 
 end

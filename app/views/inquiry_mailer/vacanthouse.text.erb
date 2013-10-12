@@ -1,0 +1,52 @@
+■名前・ニックネーム(*)
+<%= @vacanthouse.name %>
+
+■年齢(*)
+<%= MasterAge.find(@vacanthouse.master_age_id).value %>
+
+■性別(*)
+<%= MasterGender.find(@vacanthouse.master_gender_id).value %>
+
+■職業(*)
+<%= MasterJob.find(@vacanthouse.master_job_id).value %>
+
+■メールアドレス(*)
+<%= @vacanthouse.email %>
+
+■件名(*)
+<%= @vacanthouse.title %>
+
+■住所（町名まで可。例：東京都杉並区阿佐ヶ谷南）(*)
+<%= @vacanthouse.address %>
+
+■家賃　　　円(*)
+<%= @vacanthouse.price %>
+
+■その他経費（家賃以外に必要なお金は全て記載してください）
+<%= @vacanthouse.etc_price %>
+
+■最寄り駅(*)
+<%= @vacanthouse.station %>
+
+■最寄り駅からの所要時間（例：徒歩４分）(*)
+<%= @vacanthouse.station_time %>
+
+■建物種別(*)
+<%= MasterTatemonoClass.find(@vacanthouse.master_tatemono_class_id).value %>
+
+■間取り(*)
+<% @madori_ids.each do |m| %>
+  <%= MasterMadori.find(m.to_i).value %>　
+<% end %>
+
+■個室
+□個室が提供できる　<%= !@vacanthouse.koshitsu.nil? ? '可' : '不可' %>
+
+■入居期間
+<%= MasterLiveTerm.find(@vacanthouse.master_live_term_id).value %>
+
+■募集する性別
+<%= MasterRecruitGender.find(@vacanthouse.master_recruit_gender_id).value %>
+
+■説明・コメント(*)
+<%= @vacanthouse.detail %>

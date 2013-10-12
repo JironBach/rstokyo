@@ -1,8 +1,4 @@
 class MailReview < ActiveRecord::Base
-	belongs_to :master_age_genders
-	belongs_to :master_jobs
-	belongs_to :master_themes
-
   validates :title, presence: { message: '※件名を入力してください' }
   validates :name, presence: { message: '※お名前を入力してください' }
   validates :master_age_gender_id, presence: true
