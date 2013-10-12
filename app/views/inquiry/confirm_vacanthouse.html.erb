@@ -145,7 +145,7 @@
         <tr>
           <th>個室</th>
           <td>
-            <%= @vacanthouse.koshitsu.nil? ? '不可' : '可' %>
+            <%= @vacanthouse.koshitsu == '1' ? '可' : '不可' %>
           </td>
         </tr>
 

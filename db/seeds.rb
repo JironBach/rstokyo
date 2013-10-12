@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-MasterAgeGender.create_or_update([
+MasterAgeGender.first_or_create([
 	{ id: 1, value: '１０代・女性' },
 	{ id: 2, value: '１０代・男性' },
 	{ id: 3, value: '２０代・女性' },
@@ -23,7 +23,7 @@ MasterAgeGender.create_or_update([
 	{ id: 14, value: '７０代～・男性' },
 ])
 
-MasterJob.create_or_update([
+MasterJob.first_or_create([
 	{ id: 1, value: '学生' },
 	{ id: 2, value: '会社役員' },
 	{ id: 3, value: '会社員' },
@@ -36,7 +36,7 @@ MasterJob.create_or_update([
 	{ id: 10, value: 'その他' },
 ])
 
-MasterTheme.create_or_update([
+MasterTheme.first_or_create([
 	{ id: 1, value: '賃貸マンション・アパート・一戸建て' },
 	{ id: 2, value: 'シェアハウス・ゲストハウス' },
 	{ id: 3, value: '事務所・商業・店舗物件' },
@@ -49,7 +49,7 @@ MasterTheme.create_or_update([
 	{ id: 10, value: '不動産一般' },
 ])
 
-MasterAge.create_or_update([
+MasterAge.first_or_create([
 	{ id: 1, value: '～２２歳' },
 	{ id: 2, value: '２３歳～２７歳' },
 	{ id: 3, value: '２８歳～３２歳' },
@@ -60,7 +60,7 @@ MasterAge.create_or_update([
 	{ id: 8, value: '６０代～' },
 ])
 
-MasterLiveTerm.create_or_update([
+MasterLiveTerm.first_or_create([
 	{ id: 1, value: '期限なし' },
 	{ id: 2, value: '３ヶ月以内' },
 	{ id: 3, value: '６ヶ月以内' },
@@ -68,7 +68,7 @@ MasterLiveTerm.create_or_update([
 	{ id: 5, value: '２年以内' },
 ])
 
-MasterTatemonoClass.create_or_update([
+MasterTatemonoClass.first_or_create([
   { id: 1, value: 'マンション' },
   { id: 2, value: 'アパート' },
   { id: 3, value: '一戸建て' },
@@ -77,7 +77,7 @@ MasterTatemonoClass.create_or_update([
   { id: 6, value: 'その他賃貸' },
 ])
 
-MasterMadori.create_or_update([
+MasterMadori.first_or_create([
   { id: 1, value: '1ルーム' },
   { id: 2, value: '1K' },
   { id: 3, value: '1DK(+S)' },
@@ -91,7 +91,7 @@ MasterMadori.create_or_update([
   { id: 11, value: '4K～' },
 ])
 
-MasterRecruitGender.create_or_update([
+MasterRecruitGender.first_or_create([
 	{ id: 1, value: '男女問わず' },
 	{ id: 2, value: '女性のみ' },
 	{ id: 3, value: '男性のみ' },

@@ -39,8 +39,8 @@
   <%= MasterMadori.find(m.to_i).value %>　
 <% end %>
 
-■個室
-□個室が提供できる　<%= !@vacanthouse.koshitsu.nil? ? '可' : '不可' %>
+■個室が提供できる
+<%= !@vacanthouse.koshitsu == '1' ? '可' : '不可' %>
 
 ■入居期間
 <%= MasterLiveTerm.find(@vacanthouse.master_live_term_id).value %>
