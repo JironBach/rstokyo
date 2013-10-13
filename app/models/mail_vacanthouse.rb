@@ -2,6 +2,7 @@ class MailVacanthouse < ActiveRecord::Base
 	has_many :mail_vacanthouse_master_madoris
 	has_many :master_madoris, :through => :mail_vacanthouse_master_madoris
   accepts_nested_attributes_for :master_madoris
+  belongs_to :master_ages
 
   validates :name, presence: { message: '※名前・ニックネームを入力してください' }
   validates :master_age_id, presence: true

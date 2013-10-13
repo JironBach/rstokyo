@@ -50,8 +50,12 @@ class InquiryController < ApplicationController
 		@vacanthouse.update(vacanthouse_strong_params)
 		@vacanthouse.image = session[:image]
 		session[:image] = nil
-		@vacanthouse.save_with_madori(session[:madori_ids])
 
+		@vacanthouse.save_with_madori(session[:madori_ids])
+		logger.debug @vacanthouse.inspect
+		@vacanthouse = MailVacanthouse.find(@vacanthouse.id)
+
+		InquiryMailer.confirm_vacanthouse(@vacanthouse, session[:madori_ids]).deliver
 		InquiryMailer.vacanthouse(@vacanthouse, session[:madori_ids]).deliver
 		session[:madori_ids] = nil
 
