@@ -1,0 +1,23 @@
+<%= @review.name %>様、口コミ情報のご提供ありがとうございます。
+下記内容でメールを受付いたしました。
+
+■件名
+<%= @review.title %>
+
+■お名前
+<%= @review.name %>
+
+■年代・性別
+<%= MasterAgeGender.find(@review.master_age_gender_id).value %>
+
+■職業
+<%= MasterJob.find(@review.master_job_id).value %>
+
+■メールアドレス
+<%= @review.email %>
+
+■テーマ種別
+<%= MasterTheme.find(@review.master_theme_id).value %>
+
+■コメント記入欄
+<%= @review.detail %>

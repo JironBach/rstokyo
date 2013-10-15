@@ -22,6 +22,7 @@ class InquiryController < ApplicationController
 		session[:image] = nil
 		@review.save
 
+		InquiryMailer.confirm_review(@review).deliver
 		InquiryMailer.review(@review).deliver
 
 		render :post_review
