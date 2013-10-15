@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ルームシェア東京</title>
+<title><%= @title.nil? ? 'ルームシェア東京' : @title %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => false %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
   <%= csrf_meta_tags %>
@@ -13,7 +13,7 @@
   <div id="header">
   <div id="headerArea">
     <div class="header_txt"><h1>ルームシェア・シェアハウス物件、ルームメイトを探すならルームシェア東京！</h1></div>
-    <div class="header_logo"><a href="http://www.rstokyo.net"><%= image_tag("site-logo.gif", alt: "ルームシェア東京", width: "271", height: "50") %></a></div>
+    <div class="header_logo"><a href="/"><%= image_tag("site-logo.gif", alt: "ルームシェア東京", width: "271", height: "50") %></a></div>
 
     <div id="gnavi">
       <ul id="globalnavi">

@@ -1,10 +1,12 @@
 class InquiryController < ApplicationController
 	def review
+		@title = 'ルームシェア東京：口コミ情報求む！'
 		@review = MailReview.new
 		render :review
 	end
 
 	def confirm_review
+		@title = 'ルームシェア東京：口コミ情報求む！'
 		@review = MailReview.new
 		@review.update(review_strong_params)
 		session[:image] = @review.image
@@ -16,6 +18,7 @@ class InquiryController < ApplicationController
 	end
 
 	def post_review
+		@title = 'ルームシェア東京：口コミ情報求む！'
 		@review = MailReview.new
 		@review.update(review_strong_params)
 		@review.image = session[:image]
@@ -28,11 +31,13 @@ class InquiryController < ApplicationController
 	end
 
 	def vacanthouse
+		@title = 'ルームシェア東京：空き室を貸したい！'
 		@vacanthouse = MailVacanthouse.new
 		render :vacanthouse
 	end
 
 	def confirm_vacanthouse
+		@title = 'ルームシェア東京：空き室を貸したい！'
 		@vacanthouse = MailVacanthouse.new
 		@vacanthouse.update(vacanthouse_strong_params)
 		session[:image] = @vacanthouse.image
@@ -46,6 +51,7 @@ class InquiryController < ApplicationController
 	end
 
 	def post_vacanthouse
+		@title = 'ルームシェア東京：空き室を貸したい！'
 		@vacanthouse = MailVacanthouse.new
 		@vacanthouse.update(vacanthouse_strong_params)
 		@vacanthouse.image = session[:image]

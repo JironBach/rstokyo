@@ -3,8 +3,4 @@ class IndexController < ApplicationController
 		render :index
 	end
 
-	def send_kuchikomi
-		
-	end
-
 end
