@@ -44,7 +44,7 @@ doc/app
 /.rvmrc*
 *~
 #/public/assets/*
-/.ruby-version
+#/.ruby-version
 /*sublime*
 /.env
 /.powenv

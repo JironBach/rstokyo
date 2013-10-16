@@ -6,7 +6,7 @@ ln -s /home/sqale/etc/database.yml /home/sqale/current/config/database.yml
 #rm -f /home/sqale/current/config/oauth.yml
 #ln -s /home/sqale/etc/oauth.yml /home/sqale/current/config/oauth.yml
 
-chown -R sqale:sqale /home/sqale/.rbenv/*
+#chown -R sqale:sqale /home/sqale/.rbenv/*
 cd /home/sqale/current && bundle update && rake assets:precompile
 /etc/init.d/app restart
 
