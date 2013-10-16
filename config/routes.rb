@@ -6,6 +6,12 @@ Rstokyo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'index#index'
+  get 'about' => 'index#about'
+  get 'review' => 'index#review'
+  get 'corporate' => 'index#corporate'
+  get 'sitemap' => 'index#sitemap'
+  get 'link' => 'index#link'
+  get 'privacy' => 'index#privacy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

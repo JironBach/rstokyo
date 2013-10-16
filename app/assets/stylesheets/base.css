@@ -325,8 +325,7 @@ div#main h3{
 
 div#main h4{
   padding: 0 0 0 10px;
-  margin: 0 0 10px 0;
-  background: url("/assets/h4.jpg") no-repeat;
+  margin: 0 0 10px 10px;
   font-size: 123.1%;
   font-weight:bold;
   line-height: 35px;
@@ -356,7 +355,10 @@ vertical-align:bottom
 
 }
 
-
+.sitemap {
+  margin: 0;
+  padding: 0px 30px;
+}
 /* ===== サイドバー ===== */
 
 div#side{
