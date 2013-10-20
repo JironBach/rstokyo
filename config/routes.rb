@@ -12,6 +12,8 @@ Rstokyo::Application.routes.draw do
   get 'sitemap' => 'index#sitemap'
   get 'link' => 'index#link'
   get 'privacy' => 'index#privacy'
+  get 'blog' => 'index#blog'
+  get 'review' => 'index#review'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

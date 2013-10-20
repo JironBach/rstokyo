@@ -18,11 +18,11 @@
     <div id="gnavi">
       <ul id="globalnavi">
       <li><a href="/"><%= image_tag("gnavi_01.jpg", alt: "TOP", width: "156", height: "43") %></a></li>
-      <li><a href="/about/index.html"><%= image_tag("gnavi_02.jpg", alt: "About Site", width: "156", height: "43") %></a></li>
+      <li><%= link_to(image_tag("gnavi_02.jpg", alt: "About Site", width: "156", height: "43"), controller: :index, action: :about) %></li>
       <li><a href="/line/index.html"><%= image_tag("gnavi_03.jpg", alt: "路線･駅名で探す", width: "156", height: "43") %></a></li>
       <li><a href="/area/index.html"><%= image_tag("gnavi_04.jpg", alt: "エリアで探す", width: "156", height: "43") %></a></li>
-      <li><a href="/blog/index.html"><%= image_tag("gnavi_05.jpg", alt: "ブログ", width: "156", height: "43") %></a></li>
-      <li><a href="/kuchikomi/index.html"><%= image_tag("gnavi_06.jpg", alt: "口コミ情報", width: "156", height: "43") %></a></li>
+      <li><%= link_to(image_tag("gnavi_05.jpg", alt: "ブログ", width: "156", height: "43"), controller: :index, action: :blog) %></li>
+      <li><%= link_to(image_tag("gnavi_06.jpg", alt: "口コミ情報", width: "156", height: "43"), controller: :index, action: :review) %></li>
       </ul>
     </div>
     <!-- end div#gnavi -->

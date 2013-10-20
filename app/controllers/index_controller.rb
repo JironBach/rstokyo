@@ -26,4 +26,9 @@ class IndexController < ApplicationController
 	def privacy
 		render :privacy
 	end
+
+	def blog
+		render :blog
+	end
+
 end
