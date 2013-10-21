@@ -17,10 +17,10 @@
 
     <div id="gnavi">
       <ul id="globalnavi">
-      <li><a href="/"><%= image_tag("gnavi_01.jpg", alt: "TOP", width: "156", height: "43") %></a></li>
+      <li><%= link_to(image_tag("gnavi_01.jpg", alt: "TOP", width: "156", height: "43"), controller: :index, action: :index) %></li>
       <li><%= link_to(image_tag("gnavi_02.jpg", alt: "About Site", width: "156", height: "43"), controller: :index, action: :about) %></li>
-      <li><a href="/line/index.html"><%= image_tag("gnavi_03.jpg", alt: "路線･駅名で探す", width: "156", height: "43") %></a></li>
-      <li><a href="/area/index.html"><%= image_tag("gnavi_04.jpg", alt: "エリアで探す", width: "156", height: "43") %></a></li>
+      <li><%= link_to(image_tag("gnavi_03.jpg", alt: "路線･駅名で探す", width: "156", height: "43"), controller: :line, action: :index) %></li>
+      <li><%= link_to(image_tag("gnavi_04.jpg", alt: "エリアで探す", width: "156", height: "43"), controller: :area, action: :index) %></li>
       <li><%= link_to(image_tag("gnavi_05.jpg", alt: "ブログ", width: "156", height: "43"), controller: :index, action: :blog) %></li>
       <li><%= link_to(image_tag("gnavi_06.jpg", alt: "口コミ情報", width: "156", height: "43"), controller: :index, action: :review) %></li>
       </ul>
@@ -37,7 +37,7 @@
 
     <div class="footer_logo">
     <div class="footer_elogo">
-    <h6><a href="http://www.rstokyo.net"><%= image_tag("footer_elogo.jpg", alt: "スキマジャパンロゴ", width: "72", height: "66") %></a></h6>
+    <h6><a href="http://www.sukimajapan.com" target="_blank"><%= image_tag("footer_elogo.jpg", alt: "スキマジャパンロゴ", width: "72", height: "66") %></a></h6>
     </div>
     <div class="footer_corp">
     <h6><%= image_tag("footer_logo.jpg", alt: "03-5347-9239", width: "150", height: "20") %></h6>
@@ -49,49 +49,38 @@
 
     <div class="footer_navi">
       <ul>
-      <li><a href="#">・ルームシェア東京とは</a></li>
-      <li><a href="#">・運営会社</a></li>
+      <li>・<%= link_to 'ルームシェア東京とは', "/about" %></li>
+      <li>・<%= link_to '運営会社', "/corporate" %></li>
       <li><a href="#">・オーナー様へ</a></li>
       <li><a href="#">・不動産業者様へ</a></li>
-      <li><a href="#">・サイトマップ</a></li>
-      <li><a href="#">・リンク集</a></li>
-      <li><a href="#">・プライバシーポリシー</a></li>
+      <li>・<%= link_to 'サイトマップ', "/sitemap" %></li>
+      <li>・<%= link_to 'リンク集', "/link" %></li>
+      <li>・<%= link_to 'プライバシーポリシー', "/privacy" %></li>
       <li><a href="#">・お問い合わせ</a></li>
       </ul>
     </div>
     <div class="footer_navi">
     <h6><%= image_tag("fotter_tit_01.jpg", alt: "人気の路線から探す", width: "164", height: "30") %></h6>
       <ul>
-      <li><a href="#">・東急東横線</a></li>
-      <li><a href="#">・山手線</a></li>
-      <li><a href="#">・中央線</a></li>
-      <li><a href="#">・田園都市線</a></li>
-      <li><a href="#">・京王線</a></li>
-      <li><a href="#">・小田急線</a></li>
-      <li><a href="#">・副都心線</a></li>
+      <li><a href="/line">・中央線</a></li>
+      <li><a href="/line">・総武線</a></li>
+      <li><a href="/line">・丸の内線</a></li>
+      <li><a href="/line">・有楽町線</a></li>
+      <li><a href="/line">・西武池袋線</a></li>
       </ul>
     </div>
     <div class="footer_navi">
     <h6><%= image_tag("fotter_tit_02.jpg", alt: "人気の駅から探す", width: "164", height: "30") %></h6>
       <ul>
-      <li><a href="#">・自由が丘</a></li>
-      <li><a href="#">・吉祥寺</a></li>
-      <li><a href="#">・中目黒</a></li>
-      <li><a href="#">・中野</a></li>
-      <li><a href="#">・高円寺</a></li>
-      <li><a href="#">・表参道</a></li>
+      <li><a href="/line/station">・阿佐ヶ谷</a></li>
+      <li><a href="/line/station">・桜台</a></li>
       </ul>
     </div>
     <div class="footer_navi">
     <h6><%= image_tag("fotter_tit_03.jpg", alt: "人気のエリアから探す", width: "164", height: "30") %></h6>
       <ul>
-      <li><a href="#">・世田谷区</a></li>
-      <li><a href="#">・目黒区</a></li>
-      <li><a href="#">・中央区</a></li>
-      <li><a href="#">・杉並区</a></li>
-      <li><a href="#">・渋谷区</a></li>
-      <li><a href="#">・新宿区</a></li>
-      <li><a href="#">・港区</a></li>
+      <li><a href="/area">・杉並区</a></li>
+      <li><a href="/area">・練馬区</a></li>
       </ul>
     </div>
 

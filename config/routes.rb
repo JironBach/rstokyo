@@ -13,7 +13,30 @@ Rstokyo::Application.routes.draw do
   get 'link' => 'index#link'
   get 'privacy' => 'index#privacy'
   get 'blog' => 'index#blog'
-  get 'review' => 'index#review'
+  get 'line' => 'line#index'
+  get 'line/station' => 'line#index'
+  get 'area' => 'area#index'
+
+  get 'madori' => 'madori#index'
+  get 'madori/m1k' => 'madori#m1k'
+  get 'madori/m2k' => 'madori#m2k'
+  get 'madori/m3k' => 'madori#m3k'
+  get 'madori/m4k' => 'madori#m4k'
+
+  get 'conditions' => 'conditions#index'
+  get 'conditions/walk5m' => 'conditions#walk5m'
+  get 'conditions/y5' => 'conditions#y5'
+  get 'conditions/y10' => 'conditions#y10'
+  get 'conditions/home' => 'conditions#home'
+  get 'conditions/new' => 'conditions#new'
+  get 'conditions/design' => 'conditions#design'
+  get 'conditions/women' => 'conditions#women'
+  get 'conditions/pet' => 'conditions#pet'
+  get 'conditions/intervention' => 'conditions#intervention'
+
+  get 'room' => 'room#index'
+  get 'room/abaranchiasagaya' => 'room#abaranchiasagaya'
+  get 'room/whitehousesakuradai' => 'room#whitehousesakuradai'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

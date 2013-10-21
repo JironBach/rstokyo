@@ -14,42 +14,22 @@
       <h6><%= image_tag("main_tit_01.jpg", alt: "おすすめ！ルームシェア物件", width: "356", height: "46") %></h6>
         <div class="main_spec_or">
           <div class="main_spec_left">
-            <div class="main_spec_tit">賃貸一戸建て</div>          
-            <div class="main_spec_access">東急東横線　菊名5分</div>          
-            <div class="main_spec_pict"><%= image_tag("bukken_pict.jpg", width: "150", height: "113") %></div>          
+            <div class="main_spec_tit">賃貸女性専用物件</div>          
+            <div class="main_spec_access">西武池袋線　桜台駅徒歩7分</div>          
+            <div class="main_spec_pict"><%= link_to(image_tag("sakuradai_pict.jpg", alt: "WHITE HOUSE 桜台", width: "150", height: "113"), controller: :room, action: :whitehousesakuradai) %></div>
           </div><!-- end div.main_spec_left -->
           <div class="main_spec_right">
-            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
-            <div class="main_spec_rtxt">         
-            住所：横浜市港北区<br>
-            面積：121.63㎡<br>
-            間取り：４ＬＤＫ<br>
-            個室：６畳×2、７畳、5.5畳<br>
+            <div class="main_spec_rtit"><%= link_to 'WHITE HOUSE 桜台', "/room/whitehousesakuradai" %></div>
+            <div class="main_spec_rtxt">
+            <span class="bbold">家賃4.8万円～6.0万円</span><br>
+            住所：東京都練馬区桜台<br>
+            間取り：１Ｋ<br>
+            個室：5部屋<br>
             敷金：１ヶ月<br>
             礼金：１ヶ月</div>
             </div><!-- end div.main_spec_right -->
             <div class="main_spec_copy">
-            3名以上の仲良しグループにオススメ！
-            </div><!-- end div.main_spec_copy -->
-        </div><!-- end div.main_spec_or -->
-        <div class="main_spec_or">
-          <div class="main_spec_left">
-            <div class="main_spec_tit">賃貸一戸建て</div>          
-            <div class="main_spec_access">東急東横線　菊名5分</div>          
-            <div class="main_spec_pict"><%= image_tag("bukken_pict.jpg", width: "150", height: "113") %></div>          
-          </div><!-- end div.main_spec_left -->
-          <div class="main_spec_right">
-            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
-            <div class="main_spec_rtxt">         
-            住所：横浜市港北区<br>
-            面積：121.63㎡<br>
-            間取り：４ＬＤＫ<br>
-            個室：６畳×2、７畳、5.5畳<br>
-            敷金：１ヶ月<br>
-            礼金：１ヶ月</div>
-            </div><!-- end div.main_spec_right -->
-            <div class="main_spec_copy">
-            3名以上の仲良しグループにオススメ！
+            アクティブ女子の為のシェアハウスです！
             </div><!-- end div.main_spec_copy -->
         </div><!-- end div.main_spec_or -->
       </div><!-- end div.main_left -->
@@ -58,42 +38,22 @@
       <h6><%= image_tag("main_tit_02.jpg", alt: "新着！ルームシェア物件", width: "356", height: "46") %></h6>
         <div class="main_spec_gr">
           <div class="main_spec_left">
-            <div class="main_spec_tit">賃貸一戸建て</div>          
-            <div class="main_spec_access">東急東横線　菊名5分</div>          
-            <div class="main_spec_pict"><%= image_tag("bukken_pict.jpg", width: "150", height: "113") %></div>          
+            <div class="main_spec_tit">賃貸</div>          
+            <div class="main_spec_access">中央･総武線　阿佐ヶ谷徒歩7分</div>          
+            <div class="main_spec_pict"><%= link_to(image_tag("asagaya_pict.jpg", alt: "アバランチ阿佐ヶ谷", width: "150", height: "113"), controller: :room, action: :abaranchiasagaya) %></div>          
           </div><!-- end div.main_spec_left -->
           <div class="main_spec_right">
-            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
-            <div class="main_spec_rtxt">         
-            住所：横浜市港北区<br>
-            面積：121.63㎡<br>
-            間取り：４ＬＤＫ<br>
-            個室：６畳×2、７畳、5.5畳<br>
+            <div class="main_spec_rtit"><%= link_to 'アバランチ阿佐ヶ谷', "/room/abaranchiasagaya" %></div>
+            <div class="main_spec_rtxt">
+            <span class="bbold">家賃3.8万円～7.1万円</span><br>
+            住所：杉並区阿佐ヶ谷南<br>
+            間取り：１Ｋ<br>
+            個室：8部屋<br>
             敷金：１ヶ月<br>
             礼金：１ヶ月</div>
             </div><!-- end div.main_spec_right -->
             <div class="main_spec_copy">
-            3名以上の仲良しグループにオススメ！
-            </div><!-- end div.main_spec_copy -->
-        </div><!-- end div.main_spec_or -->
-        <div class="main_spec_gr">
-          <div class="main_spec_left">
-            <div class="main_spec_tit">賃貸一戸建て</div>          
-            <div class="main_spec_access">東急東横線　菊名5分</div>          
-            <div class="main_spec_pict"><%= image_tag("bukken_pict.jpg", width: "150", height: "113") %></div>          
-          </div><!-- end div.main_spec_left -->
-          <div class="main_spec_right">
-            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
-            <div class="main_spec_rtxt">         
-            住所：横浜市港北区<br>
-            面積：121.63㎡<br>
-            間取り：４ＬＤＫ<br>
-            個室：６畳×2、７畳、5.5畳<br>
-            敷金：１ヶ月<br>
-            礼金：１ヶ月</div>
-            </div><!-- end div.main_spec_right -->
-            <div class="main_spec_copy">
-            3名以上の仲良しグループにオススメ！
+            秘密基地風のコワーキング・スペース付き！
             </div><!-- end div.main_spec_copy -->
         </div><!-- end div.main_spec_or -->
       </div><!-- end div.main_right -->
@@ -103,95 +63,13 @@
       <div class="floatwrap mgnt20">
       
       <div class="main_left">
-      <h6><%= image_tag("main_tit_03.jpg", alt: "おすすめ！ルームシェア物件", width: "356", height: "46") %></h6>
-        <div class="main_spec_or">
-          <div class="main_spec_left">
-            <div class="main_spec_tit">賃貸一戸建て</div>          
-            <div class="main_spec_access">東急東横線　菊名5分</div>          
-            <div class="main_spec_pict"><%= image_tag("bukken_pict.jpg", width: "150", height: "113") %></div>          
-          </div><!-- end div.main_spec_left -->
-          <div class="main_spec_right">
-            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
-            <div class="main_spec_rtxt">         
-            住所：横浜市港北区<br>
-            面積：121.63㎡<br>
-            間取り：４ＬＤＫ<br>
-            個室：６畳×2、７畳、5.5畳<br>
-            敷金：１ヶ月<br>
-            礼金：１ヶ月</div>
-            </div><!-- end div.main_spec_right -->
-            <div class="main_spec_copy">
-            3名以上の仲良しグループにオススメ！
-            </div><!-- end div.main_spec_copy -->
-        </div><!-- end div.main_spec_or -->
-        <div class="main_spec_or">
-          <div class="main_spec_left">
-            <div class="main_spec_tit">賃貸一戸建て</div>          
-            <div class="main_spec_access">東急東横線　菊名5分</div>          
-            <div class="main_spec_pict"><%= image_tag("bukken_pict.jpg", width: "150", height: "113") %></div>          
-          </div><!-- end div.main_spec_left -->
-          <div class="main_spec_right">
-            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
-            <div class="main_spec_rtxt">         
-            住所：横浜市港北区<br>
-            面積：121.63㎡<br>
-            間取り：４ＬＤＫ<br>
-            個室：６畳×2、７畳、5.5畳<br>
-            敷金：１ヶ月<br>
-            礼金：１ヶ月</div>
-            </div><!-- end div.main_spec_right -->
-            <div class="main_spec_copy">
-            3名以上の仲良しグループにオススメ！
-            </div><!-- end div.main_spec_copy -->
-
-        </div><!-- end div.main_spec_or -->
+      <h6><%= image_tag("main_tit_03.jpg", alt: "新着ブログ記事紹介", width: "356", height: "46") %></h6>
+        <p>ブログ記事紹介</p>
       </div><!-- end div.main_left -->
 
       <div class="main_right">
-      <h6><%= image_tag("main_tit_04.jpg", alt: "新着！ルームシェア物件", width: "356", height: "46") %></h6>
-        <div class="main_spec_gr">
-          <div class="main_spec_left">
-            <div class="main_spec_tit">賃貸一戸建て</div>          
-            <div class="main_spec_access">東急東横線　菊名5分</div>          
-            <div class="main_spec_pict"><%= image_tag("bukken_pict.jpg", width: "150", height: "113") %></div>          
-          </div><!-- end div.main_spec_left -->
-          <div class="main_spec_right">
-            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
-            <div class="main_spec_rtxt">         
-            住所：横浜市港北区<br>
-            面積：121.63㎡<br>
-            間取り：４ＬＤＫ<br>
-            個室：６畳×2、７畳、5.5畳<br>
-            敷金：１ヶ月<br>
-            礼金：１ヶ月</div>
-            </div><!-- end div.main_spec_right -->
-            <div class="main_spec_copy">
-            3名以上の仲良しグループにオススメ！
-            </div><!-- end div.main_spec_copy -->
-
-        </div><!-- end div.main_spec_or -->
-        <div class="main_spec_gr">
-
-          <div class="main_spec_left">
-            <div class="main_spec_tit">賃貸一戸建て</div>          
-            <div class="main_spec_access">東急東横線　菊名5分</div>          
-            <div class="main_spec_pict"><%= image_tag("bukken_pict.jpg", width: "150", height: "113") %></div>          
-          </div><!-- end div.main_spec_left -->
-          <div class="main_spec_right">
-            <div class="main_spec_rtit"> 家賃○円、共益費○円</div>
-            <div class="main_spec_rtxt">         
-            住所：横浜市港北区<br>
-            面積：121.63㎡<br>
-            間取り：４ＬＤＫ<br>
-            個室：６畳×2、７畳、5.5畳<br>
-            敷金：１ヶ月<br>
-            礼金：１ヶ月</div>
-            </div><!-- end div.main_spec_right -->
-            <div class="main_spec_copy">
-            3名以上の仲良しグループにオススメ！
-            </div><!-- end div.main_spec_copy -->
-
-        </div><!-- end div.main_spec_or -->
+      <h6><%= image_tag("main_tit_04.jpg", alt: "シェア生活・口コミ情報", width: "356", height: "46") %></h6>
+        <p>シェア生活・口コミ情報紹介</p>
       </div><!-- end div.main_right -->
 
       </div><!-- end div.floatwrap -->

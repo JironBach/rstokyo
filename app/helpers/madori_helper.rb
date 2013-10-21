@@ -1,0 +1,2 @@
+module MadoriHelper
+end
