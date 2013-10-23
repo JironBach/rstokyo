@@ -681,3 +681,36 @@ table.form td  {
 	text-align: center;
 
 }
+
+/* ===== お部屋 ===== */
+
+table.room  {
+  border-top: solid 1px #ccc;
+  border-left: solid 1px #ccc;
+  border-right: solid 1px #ccc;
+  margin: 0 auto;
+  width: 90%;
+}
+table.room th  {
+  border-right: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+  background: #f7f7f7;
+  font-size: 1.0em;
+  _font-size: 12px;
+  line-height: 1.6;
+  padding: 5px 10px;
+  vertical-align: top;
+  width: 200px;
+}
+table.room td  {
+  border-bottom: solid 1px #ccc;
+  font-size: 1.0em;
+  _font-size: 12px;
+  line-height: 1.6;
+  padding: 5px 10px;
+  vertical-align: top;
+  text-decoration: none;
+
+}
+
+

@@ -9,23 +9,17 @@
     <h6><%= link_to(image_tag("navi_tit_01.jpg", alt: "間取り別で探す", width: "210", height: "60"), controller: :madori, action: :index) %></h6>
     <ul class="side_list">
       <li><%= link_to '1R～1LDK', "/madori/m1k" %></li>
-      <li><%= link_to '2K～2LDK', "/madori/m2k" %></li>
-      <li><%= link_to '3K～3LDK', "/madori/m3k" %></li>
-      <li><%= link_to '4K～', "/madori/m4k" %></li>
     </ul>
     <div class="side_list_footer"></div>
     
     <h6><%= link_to(image_tag("navi_tit_02.jpg", alt: "条件で探す", width: "210", height: "60"), controller: :conditions, action: :index) %></h6>
     <ul class="side_list">
-      <li><%= link_to '徒歩５分以内', "/conditions/walk5m" %></li>
       <li><%= link_to 'お一人様５万円以下', "/conditions/y5" %></li>
       <li><%= link_to '初期投資１０万以下', "/conditions/y10" %></li>
       <li><%= link_to '一戸建て', "/conditions/home" %></li>
       <li><%= link_to '新築・築浅', "/conditions/new" %></li>
       <li><%= link_to 'デザイナーズ', "/conditions/design" %></li>
       <li><%= link_to '女性専用', "/conditions/women" %></li>
-      <li><%= link_to 'ペット可', "/conditions/pet" %></li>
-      <li><%= link_to '事業者介在型', "/conditions/intervention" %></li>
     </ul>
     <div class="side_list_footer"></div>
     </div>
