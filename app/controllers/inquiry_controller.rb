@@ -17,6 +17,23 @@ class InquiryController < ApplicationController
 		end
 	end
 
+	def contact
+		@title = 'ルームシェア東京：お問い合わせ'
+		#@contact = MailContact.new
+		render :contact
+	end
+
+	def confirm_contact
+		@title = 'ルームシェア東京：お問い合わせ'
+		#@contact = MailContact.new
+		#@contact.update(contact_strong_params)
+		#if @contact.valid?
+			render :confirm_contact
+		#else
+		#	render :contact
+		#end
+	end
+
 	def post_review
 		@title = 'ルームシェア東京：口コミ情報求む！'
 		@review = MailReview.new
