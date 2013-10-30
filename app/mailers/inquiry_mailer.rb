@@ -1,6 +1,20 @@
 class InquiryMailer < ActionMailer::Base
   default from: ENV['MAIL_USER_NAME']
 
+  def confirm_contact(contact)
+    @contact = contact
+    mail(to: @contact.email, subject: 'お問い合わせありがとうございます') do |format|
+      format.text { render 'confirm_contact' }
+    end
+  end
+
+  def contact(contact)
+    @contact = contact
+    mail(to: ENV['MAIL_TO'], subject: 'お問い合わせ') do |format|
+      format.text { render 'contact' }
+    end
+  end
+
   def confirm_review(review)
     @review = review
     attachments[@review.image.instance.image_file_name] = File.read(@review.image.path) if !@review.image.blank?

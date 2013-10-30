@@ -17,6 +17,20 @@ class InquiryController < ApplicationController
 		end
 	end
 
+	def post_review
+		@title = 'ルームシェア東京：口コミ情報求む！'
+		@review = MailReview.new
+		@review.update(review_strong_params)
+		@review.image = session[:image]
+		session[:image] = nil
+		@review.save
+
+		InquiryMailer.confirm_review(@review).deliver
+		InquiryMailer.review(@review).deliver
+
+		render :post_review
+	end
+
 	def contact
 		@title = 'ルームシェア東京：お問い合わせ'
 		@contact = MailContact.new
@@ -34,18 +48,16 @@ class InquiryController < ApplicationController
 		end
 	end
 
-	def post_review
-		@title = 'ルームシェア東京：口コミ情報求む！'
-		@review = MailReview.new
-		@review.update(review_strong_params)
-		@review.image = session[:image]
-		session[:image] = nil
-		@review.save
+	def post_contact
+		@title = 'ルームシェア東京：お問い合わせ'
+		@contact = MailContact.new
+		@contact.update(contact_strong_params)
+		@contact.save
 
-		InquiryMailer.confirm_review(@review).deliver
-		InquiryMailer.review(@review).deliver
+		InquiryMailer.confirm_contact(@contact).deliver
+		InquiryMailer.contact(@contact).deliver
 
-		render :post_review
+		render :post_contact
 	end
 
 	def vacanthouse
@@ -87,6 +99,9 @@ class InquiryController < ApplicationController
 	end
 
 private
+  def contact_strong_params
+    params.require(:mail_contact).permit(:corp_name, :name, :email, :detail)
+  end
   def review_strong_params
     params.require(:mail_review).permit(:title, :name, :master_age_gender_id, :master_job_id, :email, :image, :master_theme_id, :detail)
   end
