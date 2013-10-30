@@ -5,7 +5,7 @@ class CreateMailContacts < ActiveRecord::Migration
       t.string(:corp_name, :limit => 50, :null => (false))
       t.string(:name, :limit => 100, :null => (false))
       t.string(:email, :limit => 100, :null => (false))
-      t.text(:detail, :default => "", :null => (false))
+      t.text(:detail, :default => nil, :null => (false))
     end
   end
 end
