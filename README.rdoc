@@ -1,29 +1,33 @@
 == README
 
-fixes #3 mobin test
-
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
 
 * Ruby version
+  2.0.0-p195 or later
 
 * System dependencies
+  Rails 4.0.1 or later
 
 * Configuration
+  bundle install
 
 * Database creation
+  rake db:update
 
 * Database initialization
+  rake db:seed
 
 * How to run the test suite
+  not yet
 
 * Services (job queues, cache servers, search engines, etc.)
+  nothing
 
 * Deployment instructions
-
-* ...
+  push to git@git.mydns.jp:crowdworks/rstokyo.git
 
 
 Please feel free to use a different markup language if you do not plan to run
