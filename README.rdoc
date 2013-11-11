@@ -28,6 +28,3 @@ application up and running.
   push to git@git.mydns.jp:crowdworks/rstokyo.git
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
