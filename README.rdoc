@@ -27,4 +27,3 @@ application up and running.
 * Deployment instructions
   push to git@git.mydns.jp:crowdworks/rstokyo.git
 
-
