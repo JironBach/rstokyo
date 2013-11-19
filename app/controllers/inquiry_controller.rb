@@ -1,4 +1,33 @@
 class InquiryController < ApplicationController
+	def mailmagazine
+		@title = 'ルームシェア東京：メールマガジン'
+		@mailmagazine = MailMailmagazine.new
+		render :mailmagazine
+	end
+
+	def confirm_mailmagazine
+		@title = 'ルームシェア東京：メールマガジン'
+		@mailmagazine = MailMailmagazine.new
+		@mailmagazine.update(mailmagazine_strong_params)
+		if @mailmagazine.valid?
+			render :confirm_mailmagazine
+		else
+			render :mailmagazine
+		end
+	end
+
+	def post_mailmagazine
+		@title = 'ルームシェア東京：メールマガジン'
+		@mailmagazine = MailMailmagazine.new
+		@mailmagazine.update(mailmagazine_strong_params)
+		@mailmagazine.save
+
+		InquiryMailer.confirm_mailmagazine(@mailmagazine).deliver
+		InquiryMailer.mailmagazine(@mailmagazine).deliver
+
+		render :post_mailmagazine
+	end
+
 	def review
 		@title = 'ルームシェア東京：口コミ情報求む！'
 		@review = MailReview.new
@@ -99,9 +128,14 @@ class InquiryController < ApplicationController
 	end
 
 private
+  def mailmagazine_strong_params
+    params.require(:mail_mailmagazine).permit(:email)
+  end
+
   def contact_strong_params
     params.require(:mail_contact).permit(:corp_name, :name, :email, :detail)
   end
+
   def review_strong_params
     params.require(:mail_review).permit(:title, :name, :master_age_gender_id, :master_job_id, :email, :image, :master_theme_id, :detail)
   end
