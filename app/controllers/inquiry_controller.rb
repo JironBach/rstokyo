@@ -1,4 +1,5 @@
 class InquiryController < ApplicationController
+	
 	def mailmagazine
 		@title = 'ルームシェア東京：メールマガジン'
 		@mailmagazine = MailMailmagazine.new
@@ -66,7 +67,7 @@ class InquiryController < ApplicationController
 		render :contact
 	end
 
-	def confirm_contact
+	def confirm_contat
 		@title = 'ルームシェア東京：お問い合わせ'
 		@contact = MailContact.new
 		@contact.update(contact_strong_params)
