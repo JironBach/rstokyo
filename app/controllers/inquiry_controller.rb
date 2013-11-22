@@ -1,5 +1,34 @@
 class InquiryController < ApplicationController
-	
+
+	def owner
+		@title = 'ルームシェア東京：オーナー様･不動産会社様へ'
+		@owner = MailOwner.new
+		render :owner
+	end
+
+	def confirm_owner
+		@title = 'ルームシェア東京：オーナー様･不動産会社様へ'
+		@owner = MailOwner.new
+		@owner.update(owner_strong_params)
+		if @owner.valid?
+			render :confirm_owner
+		else
+			render :owner
+		end
+	end
+
+	def post_owner
+		@title = 'ルームシェア東京：オーナー様･不動産会社様へ'
+		@owner = MailOwner.new
+		@owner.update(owner_strong_params)
+		@owner.save
+
+		InquiryMailer.confirm_owner(@owner).deliver
+		InquiryMailer.owner(@owner).deliver
+
+		render :post_owner
+	end
+		
 	def mailmagazine
 		@title = 'ルームシェア東京：メールマガジン'
 		@mailmagazine = MailMailmagazine.new

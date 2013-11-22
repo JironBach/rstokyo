@@ -1,6 +1,20 @@
 class InquiryMailer < ActionMailer::Base
   default from: ENV['MAIL_USER_NAME']
 
+  def confirm_mailmagazine(mailmagazine)
+    @mailmagazine = mailmagazine
+    mail(to: @mailmagazine.email, subject: 'メールマガジンご登録ありがとうございます') do |format|
+      format.text { render 'confirm_mailmagazine' }
+    end
+  end
+
+  def mailmagazine(mailmagazine)
+    @mailmagazine = mailmagazine
+    mail(to: ENV['MAIL_TO'], subject: 'メールマガジン登録') do |format|
+      format.text { render 'mailmagazine' }
+    end
+  end
+  
   def confirm_contact(contact)
     @contact = contact
     mail(to: @contact.email, subject: 'お問い合わせありがとうございます') do |format|
