@@ -1,0 +1,100 @@
+<div id="content" class="floatwrap">
+<div id="contentArea" class="floatwrap">
+
+  <%= render partial: 'layouts/side' %>
+
+  <div id="main">
+  <div class="main_header"></div>
+
+    <article id="post-8" class="post-8 page type-page status-publish hentry box-middle post">
+
+
+    <h2>オーナー様、不動産会社様へ</h2>
+
+    <p>当サイトでルームシェア物件を紹介しませんか？<br>
+    ルームシェア東京ではルームシェア可の物件情報を広く募集しています。</p>
+
+    <p>当サイトへの掲載料は必要ございません。<br>
+    成約時のみ仲介手数料、または広告料をいただいております。<br>
+    成約に至らなかった場合は当然費用はかかりませんので、安心してご利用ください。</p>
+
+    <p>本サイトの協力会社・株式会社東京みらい不動産は、宅地建物取引業者です。<br>
+    サイト掲載後は、問い合わせ対応、現地内覧、条件交渉、重要事項説明、契約手続きまでを全て責任を持って行わせて頂きます。</p>
+
+    <p>また、不動産業者様よりご紹介いただいた物件の場合は、客付仲介を行います。<br>
+    契約までの業務や手数料については、客付業者としての一般的な形と同様です。<br>
+    お気軽にお問い合わせください。</p>
+
+    <p>※図面、写真、物件概要をご準備いただけると迅速な対応が可能です。</p>
+
+    <p>ＴＥＬ　070-5517-7096</p>
+    <p>ＦＡＸ　03-6740-6436</p>
+    <p>MAIL　info@rstokyo.net</p>
+
+
+    <%= form_for @owner, url: {action: :confirm_owner}, :html => { :multipart => true } do |f| %>
+
+
+      <table border="0" cellpadding="0" cellspacing="0" class="form">
+
+        <tr>
+          <th>区分</th>
+          <td>
+            <%= f.select(:master_kubun_id, options_for_select(MasterKubun.all.collect {|mj| [ mj.value, mj.id ]}, selected: @owner.master_kubun_id), {include_blank: '選択して下さい'}) %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>会社名</th>
+          <td>
+            <%= f.text_field :corp_name, size: "16", maxlength: "13" %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>お名前<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_field :name, size: "12", maxlength: "24" %>
+            <div class="error"><%= @owner.errors.messages[:name][0] if !@owner.errors.messages[:name].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>フリガナ</th>
+          <td>
+            <%= f.text_field :furigana, size: "12", maxlength: "24" %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>メールアドレス<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_field :email, size: "36", maxlength: "80" %>
+            <div class="error"><%= @owner.errors.messages[:email][0] if !@owner.errors.messages[:email].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>お問い合わせ内容<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_area :detail, size: "16x4", maxlength: "20" %></textarea>
+            <div class="error"><%= @owner.errors.messages[:detail][0] if !@owner.errors.messages[:detail].blank? %></div>
+          </td>
+        </tr>
+      </table>
+
+      <div class="form_btn"><input type="image" src="/assets/confirm_btn.jpg" onMouseOver="this.src='/assets/confirm_btn_o.jpg'" onMouseOut="this.src='/assets/confirm_btn.jpg'" class="submit" value="送信確認画面へ">
+      </div>
+
+    <% end %>
+
+
+    <div class="main_footer"></div>
+    </div><!-- end div#main -->
+
+
+  </div><!-- end div#contentArea -->
+  </div><!-- end div#content -->
+
+</div>
+</div>
