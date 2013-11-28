@@ -1,0 +1,87 @@
+<div id="content" class="floatwrap">
+<div id="contentArea" class="floatwrap">
+
+  <%= render partial: 'layouts/side' %>
+
+  <div id="main">
+  <div class="main_header"></div>
+
+    <article id="post-8" class="post-8 page type-page status-publish hentry box-middle post">
+
+
+    <h2>こんな物件を探してほしい！</h2>
+
+    <p>みなさんが本当に住んでみたいのはどんな物件ですか？<br>
+    ルームシェア東京では、ユーザーのみなさんが叶えたい理想の物件探しをサポートいたします。</p>
+
+    <p>｢ブタと一緒に暮らしたい｣「深夜に思いっきり音が出せる部屋に住みたい｣<br>
+    といった、「一見無理ではないか？」と思うものも含めてダメもとで送ってください！</p>
+
+    <p>理想の物件が見つかるかもしれませんよ！</p>
+
+    <%= form_for @desireroom, url: {action: :confirm_desireroom}, :html => { :multipart => true } do |f| %>
+
+
+      <table border="0" cellpadding="0" cellspacing="0" class="form">
+
+        <tr>
+          <th>区分</th>
+          <td>
+            <%= f.select(:master_kubun_id, options_for_select(MasterKubun.all.collect {|mj| [ mj.value, mj.id ]}, selected: @desireroom.master_kubun_id), {include_blank: '選択して下さい'}) %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>会社名</th>
+          <td>
+            <%= f.text_field :corp_name, size: "16", maxlength: "13" %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>お名前<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_field :name, size: "12", maxlength: "24" %>
+            <div class="error"><%= @desireroom.errors.messages[:name][0] if !@desireroom.errors.messages[:name].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>フリガナ</th>
+          <td>
+            <%= f.text_field :furigana, size: "12", maxlength: "24" %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>メールアドレス<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_field :email, size: "36", maxlength: "80" %>
+            <div class="error"><%= @desireroom.errors.messages[:email][0] if !@desireroom.errors.messages[:email].blank? %></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>お問い合わせ内容<span class="red">【必須】</span></th>
+          <td>
+            <%= f.text_area :detail, size: "16x4", maxlength: "20" %></textarea>
+            <div class="error"><%= @desireroom.errors.messages[:detail][0] if !@desireroom.errors.messages[:detail].blank? %></div>
+          </td>
+        </tr>
+      </table>
+
+      <div class="form_btn"><input type="image" src="/assets/confirm_btn.jpg" onMouseOver="this.src='/assets/confirm_btn_o.jpg'" onMouseOut="this.src='/assets/confirm_btn.jpg'" class="submit" value="送信確認画面へ">
+      </div>
+
+    <% end %>
+
+
+    <div class="main_footer"></div>
+    </div><!-- end div#main -->
+
+
+  </div><!-- end div#contentArea -->
+  </div><!-- end div#content -->
+
+</div>
+</div>

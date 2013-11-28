@@ -1,0 +1,193 @@
+<div id="content" class="floatwrap">
+<div id="contentArea" class="floatwrap">
+
+  <%= render partial: 'layouts/side' %>
+
+  <div id="main">
+  <div class="main_header"></div>
+
+    <article id="post-8" class="post-8 page type-page status-publish hentry box-middle post">
+
+
+    <h2>空き室を貸したい</h2>
+
+
+    <p><a href="/privacy/">プライバシーポリシー</a>をご確認いただき、ご同意のうえ、ご送信ください。</p>
+    <h6 class="clear"><%= image_tag "spacer.gif", alt: "space", height: "20" %></h6>
+
+    <%= form_for @desireroom, url: {action: :post_desireroom} do |f| %>
+
+      <div id="input-hidden"><!-- フォーム用 hidden データ -->
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :furigana %>
+        <%= f.hidden_field :age %>
+        <%= f.hidden_field :sei %>
+        <%= f.hidden_field :master_job_id %>
+        <%= f.hidden_field :tel %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :title %>
+        <%= f.hidden_field :contact_tel %>
+        <%= f.hidden_field :contact_email %>
+        <%= f.hidden_field :station %>
+        <%= f.hidden_field :station_time %>
+        <%= f.hidden_field :line %>
+        <%= f.hidden_field :area %>
+        <%= f.hidden_field :price %>
+        <%= f.hidden_field :master_tatemono_class_id %>
+        <%= f.hidden_field :master_live_term_id %>
+        <%= f.hidden_field :master_recruit_gender_id %>
+        <%= f.hidden_field :desireroom1 %>
+        <%= f.hidden_field :desireroom2 %>
+        <%= f.hidden_field :desireroom3 %>
+        <%= f.hidden_field :desireroom4 %>
+        <%= f.hidden_field :desireroom5 %>
+        <%= f.hidden_field :detail %>
+      </div>
+
+      <label for="contact_1">
+
+      <table border="0" cellpadding="0" cellspacing="0" class="form">
+
+        </tr>
+        <tr>
+          <th>お名前<span class="red">【必須】</span></th>
+          <td>
+            <%= @desireroom.name %>
+          </td>
+        </tr>
+
+        </tr>
+        <tr>
+          <th>フリガナ</th>
+          <td>
+            <%= @desireroom.furigana %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>年齢</th>
+          <td>
+            <%= @desireroom.age %>
+          </td>
+        </tr>
+
+          <th>性別</th>
+          <td>
+            <%= MasterGender.find(@desireroom.master_gender_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>職業<span class="red">【必須】</span></th>
+          <td>
+            <%= MasterJob.find(@desireroom.master_job_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>電話番号<span class="red">【必須】</span></th>
+          <td>
+            <%= @desireroom.tel %>
+          </td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>メールアドレス<span class="red">【必須】</span></th>
+          <td>
+            <%= @desireroom.email %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>希望する連絡方法</th>
+          <td>
+            <%= @desireroom.contact_tel %>
+            <%= @desireroom.contact_email %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>勤務先・通学先等の最寄り駅</th>
+          <td>
+            <%= @desireroom.station %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>勤務先・通学先等までの希望所要時間</th>
+          <td>
+            <%= @desireroom.station_time %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>希望の沿線・駅（例：中央線・阿佐ヶ谷駅）</th>
+          <td>
+            <%= @desireroom.line %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>希望エリア（例：東京都杉並区）</th>
+          <td>
+            <%= @desireroom.area %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>希望の間取り・面積（複数選択可）</th>
+          <td>
+            <%= MasterTatemonoClass.find(@desireroom.master_tatemono_class_id).value %>
+          </td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>入居予定時期</th>
+          <td>
+            <%= MasterLiveTerm.find(@desireroom.master_live_term_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>入居予定人数</th>
+          <td>
+            <%= MasterLiveTerm.find(@desireroom.master_live_term_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>住まいで重視している事を一言でどうぞ<br>
+（家賃、広さ、駅、駅近、ペット相談可能など）</th>
+          <td>
+            <%= @desireroom.desireroom1 %>
+            <%= @desireroom.desireroom2 %>
+            <%= @desireroom.desireroom3 %>
+            <%= @desireroom.desireroom4 %>
+            <%= @desireroom.desireroom5 %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>その他、こだわりや伝えたいことがあればこの欄にご記入ください</th>
+          <td>
+            <%= @desireroom.detail %>
+          </td>
+        </tr>
+
+      </table>
+
+      <div class="form_btn">
+        <input type="image" src="/assets/submit_btn.jpg" onMouseOver="this.src='/assets/submit_btn_o.jpg'" onMouseOut="this.src='/assets/submit_btn.jpg'" class="submit">
+      </div>
+
+    <% end %>
+
+    </article>
+
+  <div class="main_footer"></div>
+  </div><!-- end div#main -->
+
+</div><!-- end div#contentArea -->
+</div><!-- end div#content -->
