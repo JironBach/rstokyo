@@ -6,7 +6,7 @@ class CreateMailOwners < ActiveRecord::Migration
       t.string(:name, :limit => 50, :default => "", :null => (false))
       t.string(:furigana, :limit => 50, :default => "", :null => (false))
       t.string(:email, :limit => 50, :default => "", :null => (false))
-      t.text(:detail, :default => "", :null => (false))
+      t.text(:detail, :null => (false))
       t.string(:master_owner_kubun_id, :limit => 11, :default => "", :null => (false))
     end
   end
