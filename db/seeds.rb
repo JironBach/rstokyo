@@ -96,3 +96,11 @@ MasterRecruitGender.update_or_create([
 	{ id: 2, value: '女性のみ' },
 	{ id: 3, value: '男性のみ' },
 ])
+
+MasterOwnerKubun.update_or_create([
+	{ id: 1, value: 'オーナー様' },
+	{ id: 2, value: '不動産会社・管理会社様' },
+	{ id: 3, value: 'その他' },
+])
+
+
