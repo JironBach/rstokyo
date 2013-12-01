@@ -1,10 +1,10 @@
-<%= @contact.name %>様、お問い合わせありがとうございます。
+<%= @owner.name %>様、お問い合わせありがとうございます。
 下記内容でメールを受付いたしました。
 
 追って担当よりご連絡させていただきます。
 
 ■区分
-<%= @owner.kubun %>
+<%= MasterOwnerKubun.find(@owner.master_owner_kubun_id).value %>
 
 ■会社名
 <%= @owner.corp_name %>

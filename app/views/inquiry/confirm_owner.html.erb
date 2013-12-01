@@ -19,7 +19,7 @@
     <%= form_for @owner, url: {action: :post_owner} do |f| %>
 
       <div id="input-hidden"><!-- フォーム用 hidden データ -->
-        <%= f.hidden_field :kubun %>
+        <%= f.hidden_field :master_owner_kubun_id %>
         <%= f.hidden_field :corp_name %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :furigana %>
@@ -32,7 +32,7 @@
         <tr>
           <th>区分</th>
           <td>
-            <%= @owner.kubun %>
+            <%= MasterOwnerKubun.find(@owner.master_owner_kubun_id).value %>
           </td>
         </tr>
 

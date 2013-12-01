@@ -40,7 +40,10 @@
         <tr>
           <th>区分</th>
           <td>
-            <%= f.select(:master_kubun_id, options_for_select(MasterKubun.all.collect {|mj| [ mj.value, mj.id ]}, selected: @owner.master_kubun_id), {include_blank: '選択して下さい'}) %>
+            <% MasterOwnerKubun.all.each do |mo| %>
+              <%= f.radio_button :master_owner_kubun_id, mo.id %><%= mo.value %>
+            <% end %>
+            <div class="error"><%= @owner.errors.messages[:master_owner_kubun_id][0] if !@owner.errors.messages[:master_owner_kubun_id].blank? %></div>
           </td>
         </tr>
 

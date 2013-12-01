@@ -158,6 +158,9 @@ class InquiryController < ApplicationController
 	end
 
 private
+  def owner_strong_params
+    params.require(:mail_owner).permit(:master_owner_kubun_id, :corp_name, :name, :furigana, :email, :detail)
+  end
   def mailmagazine_strong_params
     params.require(:mail_mailmagazine).permit(:email)
   end
