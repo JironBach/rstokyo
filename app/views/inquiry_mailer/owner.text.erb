@@ -1,5 +1,5 @@
 ■区分
-<%= @owner.master_owner_kubun_id %>
+<%= MasterOwnerKubun.find(@owner.master_owner_kubun_id).value %>
 
 ■会社名
 <%= @owner.corp_name %>
