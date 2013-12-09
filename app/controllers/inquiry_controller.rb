@@ -30,13 +30,13 @@ class InquiryController < ApplicationController
 	end
 	
 	def owner
-		@title = 'ルームシェア東京：オーナー様･不動産会社様へ'
+		@title = 'ルームシェア東京：オーナー様･不動産会社様'
 		@owner = MailOwner.new
 		render :owner
 	end
 
 	def confirm_owner
-		@title = 'ルームシェア東京：オーナー様･不動産会社様へ'
+		@title = 'ルームシェア東京：オーナー様･不動産会社様'
 		@owner = MailOwner.new
 		@owner.update(owner_strong_params)
 		if @owner.valid?
@@ -47,7 +47,7 @@ class InquiryController < ApplicationController
 	end
 
 	def post_owner
-		@title = 'ルームシェア東京：オーナー様･不動産会社様へ'
+		@title = 'ルームシェア東京：オーナー様･不動産会社様'
 		@owner = MailOwner.new
 		@owner.update(owner_strong_params)
 		@owner.save
