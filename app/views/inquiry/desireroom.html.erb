@@ -25,20 +25,6 @@
       <table border="0" cellpadding="0" cellspacing="0" class="form">
 
         <tr>
-          <th>区分</th>
-          <td>
-            <%= f.select(:master_kubun_id, options_for_select(MasterKubun.all.collect {|mj| [ mj.value, mj.id ]}, selected: @desireroom.master_kubun_id), {include_blank: '選択して下さい'}) %>
-          </td>
-        </tr>
-
-        <tr>
-          <th>会社名</th>
-          <td>
-            <%= f.text_field :corp_name, size: "16", maxlength: "13" %>
-          </td>
-        </tr>
-
-        <tr>
           <th>お名前<span class="red">【必須】</span></th>
           <td>
             <%= f.text_field :name, size: "12", maxlength: "24" %>
@@ -54,6 +40,35 @@
         </tr>
 
         <tr>
+          <th>年齢</th>
+          <td>
+            <%= f.text_field :age, size: "12", maxlength: "24" %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>性別</th>
+          <td>
+            <%= f.select(:master_gender_id, options_for_select(MasterGender.all.collect {|ma| [ ma.value, ma.id ]}, selected: @desireroom.master_gender_id), {include_blank: '選択して下さい'}) %>
+
+          </td>
+        </tr>
+
+        <tr>
+          <th>職業<span class="red">【必須】</span></th>
+          <td>
+            <%= f.select(:master_job_id, options_for_select(MasterJob.all.collect {|mj| [ mj.value, mj.id ]}, selected: @desireroom.master_job_id), {include_blank: '選択して下さい'}) %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>電話番号</th>
+          <td>
+            <%= f.text_field :tel, size: "12", maxlength: "24" %>
+          </td>
+        </tr>
+
+        <tr>
           <th>メールアドレス<span class="red">【必須】</span></th>
           <td>
             <%= f.text_field :email, size: "36", maxlength: "80" %>
@@ -62,10 +77,86 @@
         </tr>
 
         <tr>
-          <th>お問い合わせ内容<span class="red">【必須】</span></th>
+          <th>希望する連絡方法</th>
+          <td>
+            <% MasterContactInformation.all.each do |mm| %>
+              <%#= f.check_box 'master_contact_informations[]', {checked: (!params[:mail_desireroom].nil? && !params[:mail_desireroom][:master_contact_informations].nil? ? params[:mail_desireroom][:master_contact_informations].include?(mm.id.to_s) : false)}, mm.id.to_s, false %><%#= mm.value %>
+              <%= check_box_tag 'mail_desireroom[master_contact_informations][]', mm.id.to_s, (!params[:mail_desireroom].nil? && !params[:mail_desireroom][:master_contact_informations].nil? ? params[:mail_desireroom][:master_contact_informations].include?(mm.id.to_s) : false), id: dom_id(mm) %><%= mm.value %>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>勤務先・通学先等の最寄り駅</th>
+          <td>
+            <%= f.text_field :station, size: "12", maxlength: "24" %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>勤務先・通学先等までの希望所要時間</th>
+          <td>
+            <%= MasterCommutingTime.find(@desireroom.master_commuting_time_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>希望の沿線・駅（例：中央線・阿佐ヶ谷駅）</th>
+          <td>
+            <%= f.text_field :line, size: "12", maxlength: "24" %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>希望エリア（例：東京都杉並区）</th>
+          <td>
+            <%= f.text_field :area, size: "12", maxlength: "24" %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>希望の間取り・面積（複数選択可）</th>
+          <td>
+            <% MasterMadori.all.each do |mm| %>
+              <%#= f.check_box 'master_madoris[]', {checked: (!params[:mail_desireroom].nil? && !params[:mail_desireroom][:master_madoris].nil? ? params[:mail_desireroom][:master_madoris].include?(mm.id.to_s) : false)}, mm.id.to_s, false %><%#= mm.value %>
+              <%= check_box_tag 'mail_desireroom[master_madoris][]', mm.id.to_s, (!params[:mail_desireroom].nil? && !params[:mail_desireroom][:master_madoris].nil? ? params[:mail_desireroom][:master_madoris].include?(mm.id.to_s) : false), id: dom_id(mm) %><%= mm.value %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>入居予定時期</th>
+          <td>
+            <%= MasterLiveTerm.find(@desireroom.master_live_term_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>入居予定人数</th>
+          <td>
+            <%= MasterDesiredNumber.find(@desireroom.master_desired_number_id).value %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>住まいで重視している事を一言でどうぞ<br>
+（家賃、広さ、駅、駅近、ペット相談可能など）</th>
+          <td>
+            <p><%= f.text_field :conditions01, size: "12", maxlength: "24" %></p>
+            <p><%= f.text_field :conditions02, size: "12", maxlength: "24" %></p>
+            <p><%= f.text_field :conditions03, size: "12", maxlength: "24" %></p>
+            <p><%= f.text_field :conditions04, size: "12", maxlength: "24" %></p>
+            <p><%= f.text_field :conditions05, size: "12", maxlength: "24" %></p>
+          </td>
+        </tr>
+
+
+        <tr>
+          <th>その他、こだわりや伝えたいことがあればこの欄にご記入ください</span></th>
           <td>
             <%= f.text_area :detail, size: "16x4", maxlength: "20" %></textarea>
-            <div class="error"><%= @desireroom.errors.messages[:detail][0] if !@desireroom.errors.messages[:detail].blank? %></div>
+            
           </td>
         </tr>
       </table>

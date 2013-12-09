@@ -22,25 +22,24 @@
         <%= f.hidden_field :furigana %>
         <%= f.hidden_field :age %>
         <%= f.hidden_field :sei %>
+        <%= f.hidden_field :master_gender_id %>
         <%= f.hidden_field :master_job_id %>
         <%= f.hidden_field :tel %>
         <%= f.hidden_field :email %>
-        <%= f.hidden_field :title %>
-        <%= f.hidden_field :contact_tel %>
-        <%= f.hidden_field :contact_email %>
+        <%= f.hidden_field :master_contact_information_id %>
         <%= f.hidden_field :station %>
-        <%= f.hidden_field :station_time %>
+        <%= f.hidden_field :master_commuting_time_id %>
         <%= f.hidden_field :line %>
         <%= f.hidden_field :area %>
-        <%= f.hidden_field :price %>
-        <%= f.hidden_field :master_tatemono_class_id %>
+        <%= f.hidden_field :master_hope_rent_id %>
+
         <%= f.hidden_field :master_live_term_id %>
-        <%= f.hidden_field :master_recruit_gender_id %>
-        <%= f.hidden_field :desireroom1 %>
-        <%= f.hidden_field :desireroom2 %>
-        <%= f.hidden_field :desireroom3 %>
-        <%= f.hidden_field :desireroom4 %>
-        <%= f.hidden_field :desireroom5 %>
+        <%= f.hidden_field :master_desired_number_id %>
+        <%= f.hidden_field :conditions01 %>
+        <%= f.hidden_field :conditions02 %>
+        <%= f.hidden_field :conditions03 %>
+        <%= f.hidden_field :conditions04 %>
+        <%= f.hidden_field :conditions05 %>
         <%= f.hidden_field :detail %>
       </div>
 
@@ -102,8 +101,7 @@
         <tr>
           <th>希望する連絡方法</th>
           <td>
-            <%= @desireroom.contact_tel %>
-            <%= @desireroom.contact_email %>
+            <%= MasterContactInformation.find(@desireroom.master_contact_information_id).value %>
           </td>
         </tr>
 
@@ -117,7 +115,7 @@
         <tr>
           <th>勤務先・通学先等までの希望所要時間</th>
           <td>
-            <%= @desireroom.station_time %>
+            <%= MasterCommutingTime.find(@desireroom.master_commuting_time_id).value %>
           </td>
         </tr>
 
@@ -138,7 +136,9 @@
         <tr>
           <th>希望の間取り・面積（複数選択可）</th>
           <td>
-            <%= MasterTatemonoClass.find(@desireroom.master_tatemono_class_id).value %>
+            <% @madori_ids.each do |m| %>
+              <%= MasterMadori.find(m.to_i).value %>　
+            <% end %>
           </td>
         </tr>
         <tr>
@@ -153,7 +153,7 @@
         <tr>
           <th>入居予定人数</th>
           <td>
-            <%= MasterLiveTerm.find(@desireroom.master_live_term_id).value %>
+            <%= MasterDesiredNumber.find(@desireroom.master_desired_number_id).value %>
           </td>
         </tr>
 
@@ -161,11 +161,11 @@
           <th>住まいで重視している事を一言でどうぞ<br>
 （家賃、広さ、駅、駅近、ペット相談可能など）</th>
           <td>
-            <%= @desireroom.desireroom1 %>
-            <%= @desireroom.desireroom2 %>
-            <%= @desireroom.desireroom3 %>
-            <%= @desireroom.desireroom4 %>
-            <%= @desireroom.desireroom5 %>
+            <%= @desireroom.conditions01 %>
+            <%= @desireroom.conditions02 %>
+            <%= @desireroom.conditions03 %>
+            <%= @desireroom.conditions04 %>
+            <%= @desireroom.conditions05 %>
           </td>
         </tr>
 

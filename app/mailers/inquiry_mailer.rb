@@ -1,6 +1,20 @@
 class InquiryMailer < ActionMailer::Base
   default from: ENV['MAIL_USER_NAME']
 
+  def confirm_desireroom(desireroom)
+    @desireroom = desireroom
+    mail(to: @desireroom.email, subject: 'お問い合わせありがとうございます。') do |format|
+      format.text { render 'confirm_desireroom' }
+    end
+  end
+
+  def desireroom(desireroom)
+    @desireroom = desireroom
+    mail(to: ENV['MAIL_TO'], subject: 'こんな物件を探してほしい') do |format|
+      format.text { render 'desireroom' }
+    end
+  end
+
   def confirm_owner(owner)
     @owner = owner
     mail(to: @owner.email, subject: 'お問い合わせありがとうございます。') do |format|
