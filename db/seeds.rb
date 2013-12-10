@@ -119,7 +119,7 @@ MasterCommutingTime.first_or_create([
   { id: 8, value: '2時間以内' },
 ])
 
-MasterHopeRrent.first_or_create([
+MasterHopeRent.first_or_create([
   { id: 1, value: '3万～3.5万円' },
   { id: 2, value: '3.5万～4万円' },
   { id: 3, value: '4万～4.5万円' },
