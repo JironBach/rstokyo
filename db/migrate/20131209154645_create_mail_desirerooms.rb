@@ -9,7 +9,6 @@ class CreateMailDesirerooms < ActiveRecord::Migration
       t.integer(:master_job_id, :limit => 11, :null => (false))
       t.string(:tel, :limit => 255, :null => (false))
       t.string(:email, :limit => 255, :null => (false))
-      t.integer(:master_contact_information_id, :limit => 11, :null => (false))
       t.string(:station, :limit => 255, :null => (false))
       t.integer(:master_commuting_time_id, :limit => 11, :null => (false))
       t.string(:line, :limit => 255, :null => (false))
