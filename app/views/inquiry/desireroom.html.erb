@@ -116,6 +116,14 @@
         </tr>
 
         <tr>
+          <th>希望の家賃</th>
+          <td>
+            <%= f.select(:master_hope_rent_id, options_for_select(MasterHopeRent.all.collect {|mj| [ mj.value, mj.id ]}, selected: @desireroom.master_hope_rentid), {include_blank: '選択して下さい'}) %>
+
+          </td>
+        </tr>
+
+        <tr>
           <th>希望の間取り・面積（複数選択可）</th>
           <td>
             <% MasterMadori.all.each do |mm| %>
