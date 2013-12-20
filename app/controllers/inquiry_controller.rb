@@ -1,7 +1,7 @@
 class InquiryController < ApplicationController
 
 	def desireroom
-		@title = 'こんな物件を探してほしい'
+		@title = 'ルームシェア東京：こんな物件を探してほしい'
 		@desireroom = MailDesireroom.new
 		render :desireroom
 	end

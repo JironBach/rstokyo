@@ -31,7 +31,6 @@
         <%= f.hidden_field :line %>
         <%= f.hidden_field :area %>
         <%= f.hidden_field :master_hope_rent_id %>
-
         <%= f.hidden_field :master_live_term_id %>
         <%= f.hidden_field :master_desired_number_id %>
         <%= f.hidden_field :conditions01 %>
@@ -129,6 +128,13 @@
           <th>希望エリア（例：東京都杉並区）</th>
           <td>
             <%= @desireroom.area %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>希望の家賃</th>
+          <td>
+            <%= MasterHopeRent.find(@desireroom.master_hope_rent_id).value %>
           </td>
         </tr>
 

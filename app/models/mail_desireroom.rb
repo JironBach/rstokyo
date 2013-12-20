@@ -1,5 +1,5 @@
 class MailDesireroom < ActiveRecord::Base
-	has_many :mail_desireroom_master_contact_informations
-	has_many :master_contact_informations, :through => :mail_vdesireroom_master_contact_informations
-    accepts_nested_attributes_for :master_contact_informations
+	has_many :mail_desireroom_master_madoris
+	has_many :master_madoris, :through => :mail_desireroom_master_madoris
+	accepts_nested_attributes_for :master_madoris
 end

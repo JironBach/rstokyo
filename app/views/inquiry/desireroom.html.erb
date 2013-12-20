@@ -118,9 +118,8 @@
         <tr>
           <th>希望の家賃</th>
           <td>
-            <%= f.select(:master_hope_rent_id, options_for_select(MasterHopeRent.all.collect {|mj| [ mj.value, mj.id ]}, selected: @desireroom.master_hope_rent_id), {include_blank: '選択して下さい'}) %>
-
-          </td>
+            <%= f.select(:master_hope_rent_id, options_for_select(MasterHopeRent.all.collect {|mh| [ mh.value, mh.id ]}, selected: @desireroom.master_hope_rent_id), {include_blank: '選択して下さい'}) %>
+            </td>
         </tr>
 
         <tr>
