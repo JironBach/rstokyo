@@ -47,10 +47,10 @@
         </tr>
 
         <tr>
-          <th>性別</th>
+          <th>性別<span class="red">【必須】</span></th>
           <td>
             <%= f.select(:master_gender_id, options_for_select(MasterGender.all.collect {|ma| [ ma.value, ma.id ]}, selected: @desireroom.master_gender_id), {include_blank: '選択して下さい'}) %>
-
+            <div class="error"><%= @desireroom.errors.messages[:master_gender_id][0] if !@desireroom.errors.messages[:master_gender_id].blank? %></div>
           </td>
         </tr>
 
