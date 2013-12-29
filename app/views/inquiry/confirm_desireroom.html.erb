@@ -25,7 +25,7 @@
         <%= f.hidden_field :master_job_id %>
         <%= f.hidden_field :tel %>
         <%= f.hidden_field :email %>
-        <%#= f.hidden_field :master_contact_information_id %>
+        <%= f.hidden_field :master_contact_informations %>
         <%= f.hidden_field :station %>
         <%= f.hidden_field :master_commuting_time_id %>
         <%= f.hidden_field :line %>
@@ -99,7 +99,9 @@
         <tr>
           <th>希望する連絡方法</th>
           <td>
-            <%= MasterContactInformation.find(@desireroom.master_contact_information_id).value %>
+            <% @desireroom.master_contact_informations.each do |ci| %>
+              <%= MaserContactInformation.find(ci.to_i).value %>
+            <% end %>
           </td>
         </tr>
 
@@ -113,7 +115,7 @@
         <tr>
           <th>勤務先・通学先等までの希望所要時間</th>
           <td>
-            <%= MasterCommutingTime.find(@desireroom.master_commuting_time_id).value %>
+            <%= @desireroom.master_commuting_time.value %>
           </td>
         </tr>
 
@@ -134,14 +136,14 @@
         <tr>
           <th>希望の家賃</th>
           <td>
-            <%= MasterHopeRent.find(@desireroom.master_hope_rent_id).value %>
+            <%= @desireroom.master_hope_rent.value if !@desireroom.master_hope_rent.nil? %>
           </td>
         </tr>
 
         <tr>
           <th>希望の間取り・面積（複数選択可）</th>
           <td>
-            <% @madori_ids.each do |m| %>
+            <% @desireroom.master_madoris.each do |m| %>
               <%= MasterMadori.find(m.to_i).value %>　
             <% end %>
           </td>
@@ -151,14 +153,14 @@
         <tr>
           <th>入居予定時期</th>
           <td>
-            <%= MasterLiveTerm.find(@desireroom.master_live_term_id).value %>
+            <%= @desireroom.master_live_term.value if !@desireroom.master_live_term.nil? %>
           </td>
         </tr>
 
         <tr>
           <th>入居予定人数</th>
           <td>
-            <%= MasterDesiredNumber.find(@desireroom.master_desired_number_id).value %>
+            <%= @desireroom.master_desired_number.value if !@desireroom.master_desired_number.nil? %>
           </td>
         </tr>
 

@@ -19,7 +19,7 @@ class InquiryController < ApplicationController
 
 	def post_desireroom
 		@title = 'ルームシェア東京：こんな物件を探してほしい'
-		@desireroom = MailDsireroom.new
+		@desireroom = MailDesireroom.new
 		@desireroom.update(desireroom_strong_params)
 		@desireroom.save
 
