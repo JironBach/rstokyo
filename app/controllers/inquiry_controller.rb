@@ -20,6 +20,7 @@ class InquiryController < ApplicationController
 	def post_desireroom
 		@title = 'ルームシェア東京：こんな物件を探してほしい'
 		@desireroom = MailDesireroom.new
+		logger.debug @params.inspect
 		@desireroom.update(desireroom_strong_params)
 		@desireroom.save
 
@@ -188,7 +189,7 @@ class InquiryController < ApplicationController
 
 private
   def desireroom_strong_params
-    params.require(:mail_desireroom).permit(:name, :furigana, :age, :master_gender_id, :master_job_id, :tel, :email, :master_contact_information_id, :station, :master_commuting_time_id, :line, :area, :master_hope_rent_id, 'master_madoris[]', :master_live_term_id, :master_desired_number_id, :conditions01, :conditions02, :conditions03, :conditions04, :conditions05, :detail)
+    params.require(:mail_desireroom).permit(:name, :furigana, :age, :master_gender_id, :master_job_id, :tel, :email, "master_contact_informations", :station, :master_commuting_time_id, :line, :area, :master_hope_rent_id, "master_madoris", :master_live_term_id, :master_desired_number_id, :conditions01, :conditions02, :conditions03, :conditions04, :conditions05, :detail)
   end
   def owner_strong_params
     params.require(:mail_owner).permit(:master_owner_kubun_id, :corp_name, :name, :furigana, :email, :detail)
@@ -206,7 +207,7 @@ private
   end
 
   def vacanthouse_strong_params
-    params.require(:mail_vacanthouse).permit(:name, :master_age_id, :master_gender_id, :master_job_id, :email, :title, :image, :address, :price, :etc_price, :station, :station_time, :master_tatemono_class_id, 'master_madoris[]', :koshitsu, :master_live_term_id, :master_recruit_gender_id, :detail)
+    params.require(:mail_vacanthouse).permit(:name, :master_age_id, :master_gender_id, :master_job_id, :email, :title, :image, :address, :price, :etc_price, :station, :station_time, :master_tatemono_class_id, :master_madoris[], :koshitsu, :master_live_term_id, :master_recruit_gender_id, :detail)
   end
 
 end

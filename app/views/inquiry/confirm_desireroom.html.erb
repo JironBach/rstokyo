@@ -18,6 +18,7 @@
     <%= form_for @desireroom, url: {action: :post_desireroom} do |f| %>
 
       <div id="input-hidden"><!-- フォーム用 hidden データ -->
+        <% logger.debug f.inspect %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :furigana %>
         <%= f.hidden_field :age %>
@@ -25,12 +26,13 @@
         <%= f.hidden_field :master_job_id %>
         <%= f.hidden_field :tel %>
         <%= f.hidden_field :email %>
-        <%= f.hidden_field :master_contact_informations %>
+        <%= f.hidden_field "master_contact_informations[]" %>
         <%= f.hidden_field :station %>
         <%= f.hidden_field :master_commuting_time_id %>
         <%= f.hidden_field :line %>
         <%= f.hidden_field :area %>
         <%= f.hidden_field :master_hope_rent_id %>
+        <%= f.hidden_field "master_madoris[]" %>
         <%= f.hidden_field :master_live_term_id %>
         <%= f.hidden_field :master_desired_number_id %>
         <%= f.hidden_field :conditions01 %>
@@ -99,8 +101,10 @@
         <tr>
           <th>希望する連絡方法</th>
           <td>
-            <% @desireroom.master_contact_informations.each do |ci| %>
-              <%= MaserContactInformation.find(ci.to_i).value %>
+            <% if !params[:mail_desireroom][:master_contact_informations].nil? %>
+              <% params[:mail_desireroom][:master_contact_informations].each do |ci| %>
+                <%= MasterContactInformation.find(ci.to_i).value %>　
+              <% end %>
             <% end %>
           </td>
         </tr>
@@ -115,7 +119,7 @@
         <tr>
           <th>勤務先・通学先等までの希望所要時間</th>
           <td>
-            <%= @desireroom.master_commuting_time.value %>
+            <%= @desireroom.master_commuting_time.value if !@desireroom.master_commuting_time.nil? %>
           </td>
         </tr>
 
@@ -143,8 +147,10 @@
         <tr>
           <th>希望の間取り・面積（複数選択可）</th>
           <td>
-            <% @desireroom.master_madoris.each do |m| %>
-              <%= MasterMadori.find(m.to_i).value %>　
+            <% if !params[:mail_desireroom][:master_madoris].nil? %>
+              <% params[:mail_desireroom][:master_madoris].each do |m| %>
+                <%= MasterMadori.find(m.to_i).value %>　
+              <% end %>
             <% end %>
           </td>
         </tr>

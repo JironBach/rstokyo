@@ -25,13 +25,15 @@
 <%= @desireroom.email %>
 
 ■希望する連絡方法
-<%= MasterContactInformation.find(@desireroom.master_contact_information_id).value %>
+<% @desireroom.master_contact_informations.each do |ci| %>
+  <%= MasterContactInformation.find(ci.to_i).value %>　
+<% end %>
 
 ■勤務先・通学先等の最寄り駅
 <%= @desireroom.station %>
 
 ■勤務先・通学先等までの希望所要時間
-<%= MasterCommutingTime.find(@desireroom.master_commuting_time_id).value %>
+<%= @desireroom.master_commuting_time.value if !@desireroom.master_commuting_time.nil? %>
 
 ■希望の沿線・駅
 <%= @desireroom.line %>
@@ -40,18 +42,18 @@
 <%= @desireroom.area %>
 
 ■希望の家賃
-<%= MasterHopeRrent.find(@desireroom.master_hope_rent_id).value %>
+<%= @desireroom.master_hope_rent.value if !@desireroom.master_hope_rent.nil? %>
 
 ■希望の間取り・面積（複数選択可）
-<% @madori_ids.each do |m| %>
+<% @desireroom.master_madoris.each do |m| %>
   <%= MasterMadori.find(m.to_i).value %>　
 <% end %>
 
 ■入居予定時期
-<%= MasterLiveTerm.find(@desireroom.master_live_term_id).value %>
+<%= @desireroom.master_live_term.value if !@desireroom.master_live_term.nil? %>
 
 ■入居予定人数
-<%= MasterDesiredNumber.find(@desireroom.master_desired_number_id).value %>
+<%= @desireroom.master_desired_number.value if !@desireroom.master_desired_number.nil? %>
 
 ■住まいで重視している事を一言でどうぞ
 １番目の希望

@@ -80,7 +80,7 @@
           <th>希望する連絡方法</th>
           <td>
             <% MasterContactInformation.all.each do |mc| %>
-              <%= check_box_tag 'mail_desireroom[master_contact_informations][]', mc.id.to_s, (!params[:mail_desireroom].nil? && !params[:mail_desireroom][:master_contact_informations].nil? ? params[:mail_desireroom][:master_contact_informations].include?(mc.id.to_s) : false), id: dom_id(mc) %><%= mc.value %>
+              <%= check_box_tag "mail_desireroom[master_contact_informations][]", mc.id.to_s %><%= mc.value %>
             <% end %>
           </td>
         </tr>
@@ -96,7 +96,7 @@
           <th>勤務先・通学先等までの希望所要時間</th>
           <td>
             <% MasterCommutingTime.all.each do |mc| %>
-              <%= f.radio_button :master_commuting_time_id, mc.id %><%= mc.value %>
+              <%= f.radio_button :master_commuting_time, mc.id %><%= mc.value %>
             <% end %>
           </td>
         </tr>
@@ -126,7 +126,7 @@
           <th>希望の間取り・面積（複数選択可）</th>
           <td>
             <% MasterMadori.all.each do |mm| %>
-              <%= check_box_tag 'mail_desireroom[master_madoris][]', mm.id.to_s, (!params[:mail_desireroom].nil? && !params[:mail_desireroom][:master_madoris].nil? ? params[:mail_desireroom][:master_madoris].include?(mm.id.to_s) : false), id: dom_id(mm) %><%= mm.value %>
+              <%= check_box_tag "mail_desireroom[master_madoris][]", mm.id.to_s %><%= mm.value %>
             <% end %>
           </td>
         </tr>
