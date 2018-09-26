@@ -91,7 +91,7 @@ Rstokyo::Application.routes.draw do
     Rstokyo::Routing.index
     Rstokyo::Routing.inquiry
     Rstokyo::Routing.admin
-    Rstokyo::Routing.visual_migrate
+    #Rstokyo::Routing.visual_migrate
   end
 
 end
