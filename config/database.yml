@@ -23,6 +23,6 @@ test:
 production:
   <<: *default
   host: localhost
-  database_url='postgres://vhtnvmecfvjzoa:5e99b81aa38452d69bc776be2e97d54fd3ff07083a3e6037a6f8178b5cd40ba7@ec2-54-83-4-76.compute-1.amazonaws.com:5432/das6ntipip5o8r'
+  database_url: 'postgres://vhtnvmecfvjzoa:5e99b81aa38452d69bc776be2e97d54fd3ff07083a3e6037a6f8178b5cd40ba7@ec2-54-83-4-76.compute-1.amazonaws.com:5432/das6ntipip5o8r'
   #url: <%= ENV['HEROKU_POSTGRESQL_PINK_URL'] %>
 
