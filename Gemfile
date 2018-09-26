@@ -4,9 +4,12 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.2.0'
 gem 'rake'#, '~> 10.1.0'
 
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3', '~> 1.3.12'
-gem 'sqlite3', '~> 1.3.13'
+group :development do
+  # Use sqlite3 as the database for Active Record
+  #gem 'sqlite3', '~> 1.3.12'
+  gem 'sqlite3', '~> 1.3.13'
+end
+
 #gem 'mysql2'#, '0.3.12'
 
 # Use SCSS for stylesheets

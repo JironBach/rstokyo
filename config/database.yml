@@ -1,0 +1,31 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+
+test:
+  <<: *default
+  database: my_card_game_app_test
+
+production:
+  <<: *default
+  host: ec2-54-83-4-76.compute-1.amazonaws.com
+  database: das6ntipip5o8r
+  username: vhtnvmecfvjzoa
+  password: 5e99b81aa38452d69bc776be2e97d54fd3ff07083a3e6037a6f8178b5cd40ba7
+
+staging:
+  <<: *default
+  database: my_card_game_app_staging
+  username: my_card_game_app
+  password: <%= ENV['MY_PRESET_DATABASE_PASSWORD'] %>
+
