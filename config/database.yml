@@ -25,5 +25,5 @@ production:
   host: ec2-54-83-4-76.compute-1.amazonaws.com
   database: das6ntipip5o8r
   username: vhtnvmecfvjzoa
-  password: <%= ENV['MY_PRESET_DATABASE_PASSWORD'] %>
+  password: 5e99b81aa38452d69bc776be2e97d54fd3ff07083a3e6037a6f8178b5cd40ba7
 
