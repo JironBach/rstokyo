@@ -58,6 +58,7 @@ group :development do
 end
 group :development, :test do
   gem 'rack-env'
+  gem 'rspec'
 end
 
 gem 'paperclip'
