@@ -25,7 +25,7 @@ production:
   #host: ec2-54-83-4-76.compute-1.amazonaws.com
   host: localhost
   #database: das6ntipip5o8r
-  socket: /var/pgsql_socket/.s.PGSQL.5432
+  socket: /var/run/postgresql/.s.PGSQL.5432
   #username: vhtnvmecfvjzoa
   #password: 5e99b81aa38452d69bc776be2e97d54fd3ff07083a3e6037a6f8178b5cd40ba7
 
