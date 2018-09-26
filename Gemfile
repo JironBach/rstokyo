@@ -59,6 +59,7 @@ end
 group :development, :test do
   gem 'rack-env'
   gem 'rspec'
+  gem 'rspec_junit_formatter'
 end
 
 gem 'paperclip'
