@@ -39,7 +39,7 @@
 /vendor/bundle/ruby/
 *.rbc
 doc/app
-/Gemfile.lock
+#/Gemfile.lock
 /Gemfile.local
 /.rvmrc*
 *~
