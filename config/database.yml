@@ -22,4 +22,8 @@ test:
 
 production:
   <<: *default
-  database: db/rstokyo_production
+  host: ec2-54-83-4-76.compute-1.amazonaws.com
+  database: das6ntipip5o8r
+  username: vhtnvmecfvjzoa
+  password: <%= ENV['MY_PRESET_DATABASE_PASSWORD'] %>
+
