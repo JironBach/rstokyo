@@ -20,6 +20,7 @@ production:
   adapter: postgresql
   encoding: unicode
   host: ec2-54-83-4-76.compute-1.amazonaws.com
+  pool: 5
   url: <%= ENV['DATABASE_URL'] %>
   #url: postgres://vhtnvmecfvjzoa:5e99b81aa38452d69bc776be2e97d54fd3ff07083a3e6037a6f8178b5cd40ba7@ec2-54-83-4-76.compute-1.amazonaws.com:5432/das6ntipip5o8r
   #host: ec2-54-83-4-76.compute-1.amazonaws.com
