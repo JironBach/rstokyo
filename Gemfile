@@ -33,7 +33,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'heroku-rack-ssl-enforcer-rails'
+#gem 'heroku-rack-ssl-enforcer-rails'
 
 group :production do
   gem 'pg', '~> 0.18'
