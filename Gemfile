@@ -34,6 +34,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 #gem 'heroku-rack-ssl-enforcer-rails'
+gem 'rails_12factor', group: :production
 
 group :production do
   gem 'pg', '~> 0.18'
