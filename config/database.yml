@@ -17,6 +17,7 @@ test:
   database: my_card_game_app_test
 
 production:
+  host: ec2-54-83-4-76.compute-1.amazonaws.com
   adapter: postgresql
   encoding: unicode
   #url: <%= ENV['DATABASE_URL'] %>
