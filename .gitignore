@@ -24,7 +24,7 @@
 /config/initializers/session_store.rb
 /coverage
 /db/*.db
-#/db/schema.rb
+/db/schema.rb
 /files/*
 /lib/redmine/scm/adapters/mercurial/redminehelper.pyc
 /lib/redmine/scm/adapters/mercurial/redminehelper.pyo
