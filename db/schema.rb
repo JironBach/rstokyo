@@ -13,18 +13,21 @@
 
 ActiveRecord::Schema.define(version: 20131229034539) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "desire_contacts", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "mail_desireroom_id",            limit: 11, null: false
-    t.integer  "master_contact_information_id", limit: 11, null: false
+    t.integer  "mail_desireroom_id",            null: false
+    t.integer  "master_contact_information_id", null: false
   end
 
   create_table "desire_madoris", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "mail_desireroom_id", limit: 11, null: false
-    t.integer  "master_madori_id",   limit: 11, null: false
+    t.integer  "mail_desireroom_id", null: false
+    t.integer  "master_madori_id",   null: false
   end
 
   create_table "mail_contacts", force: :cascade do |t|
@@ -40,25 +43,25 @@ ActiveRecord::Schema.define(version: 20131229034539) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name",                     limit: 255, default: "", null: false
-    t.string   "furigana",                 limit: 255, default: ""
-    t.integer  "age",                      limit: 11
-    t.integer  "master_gender_id",         limit: 11
-    t.integer  "master_job_id",            limit: 11,               null: false
-    t.string   "tel",                      limit: 255, default: ""
+    t.string   "furigana",                             default: ""
+    t.integer  "age"
+    t.integer  "master_gender_id"
+    t.integer  "master_job_id",                                     null: false
+    t.string   "tel",                                  default: ""
     t.string   "email",                    limit: 255, default: "", null: false
-    t.string   "station",                  limit: 255, default: ""
-    t.integer  "master_commuting_time_id", limit: 11
-    t.string   "line",                     limit: 255, default: ""
-    t.string   "area",                     limit: 255, default: ""
-    t.integer  "master_live_term_id",      limit: 11
-    t.integer  "master_desired_number_id", limit: 11
-    t.string   "conditions01",             limit: 255, default: ""
-    t.string   "conditions02",             limit: 255, default: ""
-    t.string   "conditions03",             limit: 255, default: ""
-    t.string   "conditions04",             limit: 255, default: ""
-    t.string   "conditions05",             limit: 255, default: ""
+    t.string   "station",                              default: ""
+    t.integer  "master_commuting_time_id"
+    t.string   "line",                                 default: ""
+    t.string   "area",                                 default: ""
+    t.integer  "master_live_term_id"
+    t.integer  "master_desired_number_id"
+    t.string   "conditions01",                         default: ""
+    t.string   "conditions02",                         default: ""
+    t.string   "conditions03",                         default: ""
+    t.string   "conditions04",                         default: ""
+    t.string   "conditions05",                         default: ""
     t.text     "detail"
-    t.integer  "master_hope_rent_id",      limit: 11
+    t.integer  "master_hope_rent_id"
   end
 
   create_table "mail_mailmagazines", force: :cascade do |t|
@@ -83,10 +86,10 @@ ActiveRecord::Schema.define(version: 20131229034539) do
     t.datetime "updated_at"
     t.string   "title",                limit: 255
     t.string   "name",                 limit: 128
-    t.integer  "master_age_gender_id", limit: 11
-    t.integer  "master_job_id",        limit: 11
+    t.integer  "master_age_gender_id"
+    t.integer  "master_job_id"
     t.string   "email",                limit: 255
-    t.integer  "master_theme_id",      limit: 11
+    t.integer  "master_theme_id"
     t.text     "detail"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -97,17 +100,17 @@ ActiveRecord::Schema.define(version: 20131229034539) do
   create_table "mail_vacanthouse_master_madoris", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "mail_vacanthouse_id", limit: 11, null: false
-    t.integer  "master_madori_id",    limit: 11, null: false
+    t.integer  "mail_vacanthouse_id", null: false
+    t.integer  "master_madori_id",    null: false
   end
 
   create_table "mail_vacanthouses", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name",                     limit: 128
-    t.integer  "master_age_id",            limit: 11
-    t.integer  "master_gender_id",         limit: 11
-    t.integer  "master_job_id",            limit: 11
+    t.integer  "master_age_id"
+    t.integer  "master_gender_id"
+    t.integer  "master_job_id"
     t.string   "email",                    limit: 255
     t.string   "title",                    limit: 255
     t.string   "image_file_name"
@@ -119,10 +122,10 @@ ActiveRecord::Schema.define(version: 20131229034539) do
     t.string   "etc_price",                limit: 255
     t.string   "station",                  limit: 255
     t.string   "station_time",             limit: 255
-    t.integer  "master_tatemono_class_id", limit: 11
+    t.integer  "master_tatemono_class_id"
     t.boolean  "koshitsu"
-    t.integer  "master_live_term_id",      limit: 11
-    t.integer  "master_recruit_gender_id", limit: 11
+    t.integer  "master_live_term_id"
+    t.integer  "master_recruit_gender_id"
     t.text     "detail"
   end
 
@@ -211,7 +214,7 @@ ActiveRecord::Schema.define(version: 20131229034539) do
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
-  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
 end

@@ -7,8 +7,7 @@ default: &default
 
 development:
   <<: *default
-  adapter: postgresql
-  #adapter: sqlite3
+  adapter: sqlite3
   database: db/development.sqlite3
   pool: 5
   timeout: 5000
@@ -24,10 +23,10 @@ production:
   pool: 5
   #url: <%= ENV['DATABASE_URL'] %>
   #url: postgres://vhtnvmecfvjzoa:5e99b81aa38452d69bc776be2e97d54fd3ff07083a3e6037a6f8178b5cd40ba7@ec2-54-83-4-76.compute-1.amazonaws.com:5432/das6ntipip5o8r
-  host: ec2-54-83-4-76.compute-1.amazonaws.com
-  database: das6ntipip5o8r
-  username: vhtnvmecfvjzoa
-  password: 5e99b81aa38452d69bc776be2e97d54fd3ff07083a3e6037a6f8178b5cd40ba7
+  host: ec2-54-225-97-112.compute-1.amazonaws.com
+  database: d1mb83ha260kfn
+  username: falfiubkrtnkiy
+  password: 683edb15889bcdb5c43ca5e46b069713f71488a118c9a30e670e0ccda0f3ce0a
 
 staging:
   <<: *default
