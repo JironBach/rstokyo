@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'rails_12factor', group: :production
 
 group :production do
-  gem 'pg', '~> 0.18'
+  gem 'pg', '~> 0.20'
 end
 
 group :doc do
